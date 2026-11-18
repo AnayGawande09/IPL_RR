@@ -7,7 +7,7 @@ Everything is built from the competition data pack (IPL 2022–2026 and T20Is 20
 | | |
 |---|---|
 | **Dashboard** | `report/site/index.html` (deployed on Vercel, see [Hosting](#hosting-the-dashboard-on-vercel)) |
-| **Summary for judges** | [`report/SupeRR_Judges_Summary.pdf`](report/SupeRR_Judges_Summary.pdf) (7 pages, plain language) |
+| **Summary** | [`report/SupeRR_Judges_Summary.pdf`](report/SupeRR_Judges_Summary.pdf) (7 pages, plain language) |
 | **Full methodology** | [`report/SupeRR_Pressure_Report.pdf`](report/SupeRR_Pressure_Report.pdf) (every rule, table and check) |
 
 ---

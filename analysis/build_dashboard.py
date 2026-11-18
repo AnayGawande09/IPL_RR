@@ -86,7 +86,7 @@ site = os.path.join(os.path.dirname(os.path.abspath(DEST)), 'site')
 os.makedirs(site, exist_ok=True)
 # the hosted site also serves the two PDFs (the Claude-hosted copy cannot serve files, so it gets no links)
 links = []
-for fn, lab in (('SupeRR_Judges_Summary.pdf', 'Summary for judges (PDF)'), ('SupeRR_Pressure_Report.pdf', 'Full methodology report (PDF)')):
+for fn, lab in (('SupeRR_Judges_Summary.pdf', 'Summary (PDF)'), ('SupeRR_Pressure_Report.pdf', 'Full methodology report (PDF)')):
     src = os.path.join(os.path.dirname(os.path.abspath(DEST)), fn)
     if os.path.exists(src):
         shutil.copyfile(src, os.path.join(site, fn))
