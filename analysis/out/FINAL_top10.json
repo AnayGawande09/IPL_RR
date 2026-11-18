@@ -1,0 +1,126 @@
+{
+ "bat": [
+  {
+   "final_rank": 1,
+   "player": "Heinrich Klaasen",
+   "player_id": "4260",
+   "ens_score": 0.5182
+  },
+  {
+   "final_rank": 2,
+   "player": "Tim David",
+   "player_id": "6396",
+   "ens_score": 0.4277
+  },
+  {
+   "final_rank": 3,
+   "player": "Suryakumar Yadav",
+   "player_id": "1699",
+   "ens_score": 0.3927
+  },
+  {
+   "final_rank": 4,
+   "player": "Rinku Singh",
+   "player_id": "4708",
+   "ens_score": 0.3211
+  },
+  {
+   "final_rank": 5,
+   "player": "Josh Inglis",
+   "player_id": "4736",
+   "ens_score": 0.3167
+  },
+  {
+   "final_rank": 6,
+   "player": "Yashasvi Jaiswal",
+   "player_id": "6819",
+   "ens_score": 0.3034
+  },
+  {
+   "final_rank": 7,
+   "player": "Abhishek Sharma",
+   "player_id": "6281",
+   "ens_score": 0.2982
+  },
+  {
+   "final_rank": 8,
+   "player": "Rajat Patidar",
+   "player_id": "5039",
+   "ens_score": 0.2977
+  },
+  {
+   "final_rank": 9,
+   "player": "Shreyas Iyer",
+   "player_id": "3647",
+   "ens_score": 0.2622
+  },
+  {
+   "final_rank": 10,
+   "player": "Prabhsimran Singh",
+   "player_id": "7216",
+   "ens_score": 0.2395
+  }
+ ],
+ "bowl": [
+  {
+   "final_rank": 1,
+   "player": "Sunil Narine",
+   "player_id": "781",
+   "ens_score": 0.7229
+  },
+  {
+   "final_rank": 2,
+   "player": "Rashid Khan",
+   "player_id": "4722",
+   "ens_score": 0.546
+  },
+  {
+   "final_rank": 3,
+   "player": "Kuldeep Yadav",
+   "player_id": "3644",
+   "ens_score": 0.5181
+  },
+  {
+   "final_rank": 4,
+   "player": "Sufiyan Muqeem",
+   "player_id": "34485",
+   "ens_score": 0.4771
+  },
+  {
+   "final_rank": 5,
+   "player": "Varun Chakravarthy",
+   "player_id": "6256",
+   "ens_score": 0.4766
+  },
+  {
+   "final_rank": 6,
+   "player": "Mohsin Khan",
+   "player_id": "6669",
+   "ens_score": 0.4253
+  },
+  {
+   "final_rank": 7,
+   "player": "Bhuvneshwar Kumar",
+   "player_id": "360",
+   "ens_score": 0.3842
+  },
+  {
+   "final_rank": 8,
+   "player": "Mohammad Nawaz",
+   "player_id": "2490",
+   "ens_score": 0.3438
+  },
+  {
+   "final_rank": 9,
+   "player": "Krunal Pandya",
+   "player_id": "4219",
+   "ens_score": 0.3437
+  },
+  {
+   "final_rank": 10,
+   "player": "Mitchell Santner",
+   "player_id": "4101",
+   "ens_score": 0.2981
+  }
+ ]
+}

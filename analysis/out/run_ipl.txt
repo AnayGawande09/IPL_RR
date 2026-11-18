@@ -1,0 +1,113 @@
+=== bat (ipl) eligible=58
+1 Heinrich Klaasen 0.5043 z 0.427 1.044 0.0 0.546 borda 1 smaa 1.0 boot 0.957 1-10 Pballs 119 IPL 1.0
+2 Suryakumar Yadav 0.5042 z 0.202 1.284 0.0 0.53 borda 3 smaa 1.0 boot 0.483 3-28 Pballs 236 IPL 1.0
+3 Rajat Patidar 0.4654 z -0.091 1.744 -0.0 0.208 borda 18 smaa 0.836 boot 0.063 10-53 Pballs 81 IPL 1.0
+4 Shreyas Iyer 0.2683 z 0.637 -0.032 0.0 0.468 borda 2 smaa 0.721 boot 0.827 1-19 Pballs 204 IPL 1.0
+5 Tim David 0.249 z 0.498 0.23 0.0 0.268 borda 4 smaa 0.848 boot 0.527 1-38 Pballs 141 IPL 1.0
+6 Abhishek Sharma 0.239 z 0.09 0.759 0.0 0.106 borda 10 smaa 0.667 boot 0.4 2-50 Pballs 71 IPL 1.0
+7 Ashutosh Sharma 0.2381 z 0.634 0.179 0.0 0.139 borda 13 smaa 0.606 boot 0.493 1-38 Pballs 116 IPL 1.0
+8 Nicholas Pooran 0.2323 z 0.389 0.531 0.0 0.009 borda 12 smaa 0.759 boot 0.32 3-42 Pballs 183 IPL 1.0
+9 Rinku Singh 0.2253 z 0.566 -0.235 0.0 0.57 borda 6 smaa 0.629 boot 0.737 2-23 Pballs 139 IPL 1.0
+10 Shubman Gill 0.2241 z 0.12 0.67 0.0 0.106 borda 9 smaa 0.601 boot 0.237 3-45 Pballs 154 IPL 1.0
+11 Andre Russell 0.1561 z -0.028 0.783 -0.0 -0.13 borda 28 smaa 0.369 boot 0.053 10-56 Pballs 90 IPL 1.0
+12 Prabhsimran Singh 0.1525 z 0.066 0.34 0.0 0.204 borda 14 smaa 0.08 boot 0.18 5-40 Pballs 145 IPL 1.0
+13 Jos Buttler 0.1489 z 0.219 0.169 -0.0 0.208 borda 15 smaa 0.159 boot 0.18 6-48 Pballs 126 IPL 1.0
+14 Shashank Singh 0.1468 z 0.22 0.056 0.0 0.311 borda 7 smaa 0.348 boot 0.523 3-31 Pballs 89 IPL 1.0
+15 Rashid Khan 0.1426 z 0.548 -0.355 0.0 0.377 borda 11 smaa 0.446 boot 0.823 1-22 Pballs 76 IPL 1.0
+=== bowl (ipl) eligible=60
+1 Sunil Narine 0.832 z 0.503 1.061 0.426 1.338 borda 1 smaa 1.0 boot 0.777 1-20 Pballs 232 IPL 1.0
+2 Kuldeep Yadav 0.6993 z 0.388 0.714 0.62 1.075 borda 2 smaa 1.0 boot 0.8 1-19 Pballs 185 IPL 1.0
+3 Rashid Khan 0.5416 z 0.366 0.389 0.525 0.887 borda 3 smaa 0.998 boot 0.58 1-31 Pballs 211 IPL 1.0
+4 Bhuvneshwar Kumar 0.5219 z 0.413 1.244 0.313 0.117 borda 5 smaa 0.841 boot 0.547 1-43 Pballs 136 IPL 1.0
+5 Mohsin Khan 0.4492 z 0.332 0.907 0.02 0.539 borda 6 smaa 0.85 boot 0.453 1-42 Pballs 100 IPL 1.0
+6 Krunal Pandya 0.4358 z 0.3 0.45 0.341 0.652 borda 4 smaa 1.0 boot 0.503 2-29 Pballs 201 IPL 1.0
+7 Yuzvendra Chahal 0.3746 z 0.233 -0.056 0.515 0.806 borda 8 smaa 0.761 boot 0.383 3-33 Pballs 279 IPL 1.0
+8 Moeen Ali 0.3305 z 0.118 0.308 0.143 0.754 borda 9 smaa 0.613 boot 0.4 3-37 Pballs 75 IPL 1.0
+9 Jofra Archer 0.3192 z 0.114 0.358 0.233 0.572 borda 7 smaa 0.698 boot 0.413 2-34 Pballs 81 IPL 1.0
+10 Varun Chakravarthy 0.3045 z 0.236 0.414 0.055 0.513 borda 11 smaa 0.525 boot 0.313 4-46 Pballs 210 IPL 1.0
+11 Digvesh Rathi 0.2635 z 0.257 -0.161 0.403 0.554 borda 13 smaa 0.435 boot 0.583 2-29 Pballs 90 IPL 1.0
+12 Harpreet Brar 0.2578 z 0.128 0.14 0.225 0.539 borda 10 smaa 0.01 boot 0.343 3-38 Pballs 112 IPL 1.0
+13 Mitchell Santner 0.2571 z 0.083 0.334 0.21 0.402 borda 12 smaa 0.04 boot 0.33 3-35 Pballs 64 IPL 1.0
+14 Patrick Cummins 0.2523 z 0.097 0.094 0.065 0.754 borda 14 smaa 0.217 boot 0.257 6-31 Pballs 72 IPL 1.0
+15 Noor Ahmad 0.2322 z 0.074 0.474 0.137 0.243 borda 15 smaa 0.168 boot 0.28 4-47 Pballs 107 IPL 1.0
+{
+ "mode": "ipl",
+ "live_balls": 75907,
+ "backfit_iterations": 57,
+ "backfit_final_delta": 9.330662253947963e-08,
+ "ridge_lambda": 150.0,
+ "wpa_per_ball_var": {
+  "bat": 41.18847965840829,
+  "bowl": 39.61465053551856
+ },
+ "bat_eligible": 58,
+ "bat_excluded_inactive": 1,
+ "bat_consistency_test": {
+  "WPA_positive": {
+   "prior_strength": 247721.07,
+   "true_sd": 0.001
+  },
+  "RV_positive": {
+   "prior_strength": 129.89,
+   "true_sd": 0.0429
+  }
+ },
+ "bat_consistency_choice": "RV_positive",
+ "bat_reliability": {
+  "pressure_RV": {
+   "split_half_r": 0.143,
+   "spearman_brown": 0.25,
+   "n": 54
+  },
+  "clutch_delta": {
+   "split_half_r": -0.064,
+   "spearman_brown": -0.137,
+   "n": 54
+  },
+  "pressure_WPA": {
+   "split_half_r": 0.234,
+   "spearman_brown": 0.38,
+   "n": 54
+  },
+  "baseline_RV": {
+   "split_half_r": -0.015,
+   "spearman_brown": -0.031,
+   "n": 54
+  }
+ },
+ "bowl_eligible": 60,
+ "bowl_excluded_inactive": 1,
+ "bowl_consistency_test": {
+  "WPA_positive": {
+   "prior_strength": 53.17,
+   "true_sd": 0.0679
+  },
+  "RV_positive": {
+   "prior_strength": 21.75,
+   "true_sd": 0.1046
+  }
+ },
+ "bowl_consistency_choice": "RV_positive",
+ "bowl_reliability": {
+  "pressure_RV": {
+   "split_half_r": -0.032,
+   "spearman_brown": -0.066,
+   "n": 57
+  },
+  "clutch_delta": {
+   "split_half_r": -0.022,
+   "spearman_brown": -0.045,
+   "n": 57
+  },
+  "pressure_WPA": {
+   "split_half_r": -0.07,
+   "spearman_brown": -0.151,
+   "n": 57
+  },
+  "baseline_RV": {
+   "split_half_r": 0.329,
+   "spearman_brown": 0.495,
+   "n": 57
+  }
+ }
+}

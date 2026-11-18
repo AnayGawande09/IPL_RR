@@ -1,0 +1,7 @@
+bat {'naive (past pressure value)': 0.093, 'ridge': 0.17, 'gradient boosting': 0.09} -> ridge
+bowl {'naive (past pressure value)': -0.0, 'ridge': 0.019, 'gradient boosting': 0.025} -> gradient boosting
+bat {"truth A: model pressure rule (Cricsheet)": {"players": 42, "public_model": {"rho": 0.393, "ci90": [0.106, 0.638]}, "superrr_method": {"rho": 0.184, "ci90": [-0.098, 0.439]}, "rho_between_methods": 0.306}, "truth B: SuperRR Leverage-Index pressure (data pack)": {"players": 26, "public_model": {"rho": 0.292, "ci90": [-0.049, 0.581]}, "superrr_method": {"rho": 0.175, "ci90": [-0.179, 0.5]}, "rho_between_methods": 0.525}}
+bat overlap 3 ['V Kohli', 'PD Salt', 'RG Sharma', 'SV Samson', 'SS Iyer', 'SA Yadav', 'Abhishek Sharma', 'AM Rahane', 'KL Rahul', 'Shubman Gill']
+bowl {"truth A: model pressure rule (Cricsheet)": {"players": 43, "public_model": {"rho": -0.162, "ci90": [-0.413, 0.094]}, "superrr_method": {"rho": 0.116, "ci90": [-0.155, 0.392]}, "rho_between_methods": -0.307}, "truth B: SuperRR Leverage-Index pressure (data pack)": {"players": 32, "public_model": {"rho": 0.013, "ci90": [-0.279, 0.306]}, "superrr_method": {"rho": 0.263, "ci90": [0.009, 0.492]}, "rho_between_methods": -0.251}}
+bowl overlap 2 ['MA Starc', 'JJ Bumrah', 'MP Stoinis', 'AF Milne', 'SP Narine', 'S Dube', 'B Kumar', 'Navdeep Saini', 'SN Thakur', 'M Pathirana']
+wrote pm_results.json

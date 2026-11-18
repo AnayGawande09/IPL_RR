@@ -1,0 +1,1157 @@
+{
+ "bat_pressure": {
+  "RR": {
+   "balls": 402,
+   "SR": 166.9,
+   "out_pct": 5.22,
+   "boundary_pct": 23.9,
+   "WPA_per100": -0.5
+  },
+  "Rest of IPL": {
+   "balls": 3587,
+   "SR": 157.3,
+   "out_pct": 5.07,
+   "boundary_pct": 22.1,
+   "WPA_per100": -0.09
+  }
+ },
+ "bowl_pressure": {
+  "RR": {
+   "balls": 519,
+   "econ": 9.36,
+   "balls_per_wkt": 18.5,
+   "dot_pct": 32.0,
+   "WPA_per100": 0.11
+  },
+  "Rest of IPL": {
+   "balls": 3446,
+   "econ": 10.0,
+   "balls_per_wkt": 20.5,
+   "dot_pct": 31.6,
+   "WPA_per100": -0.04
+  }
+ },
+ "bat_pressure_phase": {
+  "Powerplay (1-6)": {
+   "RR": {
+    "balls": 72,
+    "SR": 205.6,
+    "out_pct": 1.39,
+    "boundary_pct": 40.3,
+    "WPA_per100": 0.89
+   },
+   "Rest of IPL": {
+    "balls": 869,
+    "SR": 152.0,
+    "out_pct": 3.22,
+    "boundary_pct": 25.1,
+    "WPA_per100": 0.08
+   }
+  },
+  "Middle (7-15)": {
+   "RR": {
+    "balls": 179,
+    "SR": 150.3,
+    "out_pct": 4.47,
+    "boundary_pct": 19.6,
+    "WPA_per100": -0.11
+   },
+   "Rest of IPL": {
+    "balls": 1746,
+    "SR": 149.9,
+    "out_pct": 4.52,
+    "boundary_pct": 19.1,
+    "WPA_per100": -0.09
+   }
+  },
+  "Death (16-20)": {
+   "RR": {
+    "balls": 151,
+    "SR": 168.2,
+    "out_pct": 7.95,
+    "boundary_pct": 21.2,
+    "WPA_per100": -1.61
+   },
+   "Rest of IPL": {
+    "balls": 972,
+    "SR": 175.4,
+    "out_pct": 7.72,
+    "boundary_pct": 24.7,
+    "WPA_per100": -0.25
+   }
+  }
+ },
+ "bowl_pressure_type": {
+  "Pace": {
+   "RR": {
+    "balls": 312,
+    "econ": 9.83,
+    "balls_per_wkt": 24.0,
+    "dot_pct": 31.7,
+    "WPA_per100": -0.04
+   },
+   "Rest of IPL": {
+    "balls": 2239,
+    "econ": 10.66,
+    "balls_per_wkt": 21.1,
+    "dot_pct": 31.8,
+    "WPA_per100": -0.17
+   }
+  },
+  "Spin": {
+   "RR": {
+    "balls": 207,
+    "econ": 8.67,
+    "balls_per_wkt": 13.8,
+    "dot_pct": 32.4,
+    "WPA_per100": 0.34
+   },
+   "Rest of IPL": {
+    "balls": 1207,
+    "econ": 8.76,
+    "balls_per_wkt": 19.5,
+    "dot_pct": 31.4,
+    "WPA_per100": 0.2
+   }
+  }
+ },
+ "bowl_pressure_phase": {
+  "Powerplay (1-6)": {
+   "RR": {
+    "balls": 122,
+    "econ": 8.8,
+    "balls_per_wkt": 61.0,
+    "dot_pct": 46.7,
+    "WPA_per100": -0.28
+   },
+   "Rest of IPL": {
+    "balls": 819,
+    "econ": 9.7,
+    "balls_per_wkt": 30.3,
+    "dot_pct": 40.3,
+    "WPA_per100": -0.17
+   }
+  },
+  "Middle (7-15)": {
+   "RR": {
+    "balls": 247,
+    "econ": 8.74,
+    "balls_per_wkt": 16.5,
+    "dot_pct": 28.7,
+    "WPA_per100": 0.3
+   },
+   "Rest of IPL": {
+    "balls": 1669,
+    "econ": 9.47,
+    "balls_per_wkt": 23.2,
+    "dot_pct": 29.1,
+    "WPA_per100": -0.05
+   }
+  },
+  "Death (16-20)": {
+   "RR": {
+    "balls": 150,
+    "econ": 10.84,
+    "balls_per_wkt": 13.6,
+    "dot_pct": 25.3,
+    "WPA_per100": 0.11
+   },
+   "Rest of IPL": {
+    "balls": 958,
+    "econ": 11.17,
+    "balls_per_wkt": 13.9,
+    "dot_pct": 28.7,
+    "WPA_per100": 0.08
+   }
+  }
+ },
+ "rr_results": {
+  "2025": {
+   "lost": 10,
+   "won": 4,
+   "close_won": 1,
+   "close_lost": 4
+  },
+  "2026": {
+   "won": 9,
+   "close_won": 3,
+   "lost": 7,
+   "close_lost": 3
+  }
+ },
+ "rr_squad_2026": [
+  {
+   "player": "Ravindra Jadeja",
+   "bat_rank": "74",
+   "bowl_rank": "26",
+   "bat_P_balls": "150",
+   "bowl_P_balls": "183"
+  },
+  {
+   "player": "Adam Milne",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Sandeep Sharma",
+   "bat_rank": "",
+   "bowl_rank": "98",
+   "bat_P_balls": "",
+   "bowl_P_balls": "136"
+  },
+  {
+   "player": "Dasun Shanaka",
+   "bat_rank": "66",
+   "bowl_rank": "59",
+   "bat_P_balls": "198",
+   "bowl_P_balls": "94"
+  },
+  {
+   "player": "Shimron Hetmyer",
+   "bat_rank": "91",
+   "bowl_rank": "",
+   "bat_P_balls": "185",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Jofra Archer",
+   "bat_rank": "",
+   "bowl_rank": "17",
+   "bat_P_balls": "",
+   "bowl_P_balls": "120"
+  },
+  {
+   "player": "Sam Curran",
+   "bat_rank": "77",
+   "bowl_rank": "82",
+   "bat_P_balls": "193",
+   "bowl_P_balls": "168"
+  },
+  {
+   "player": "Riyan Parag",
+   "bat_rank": "47",
+   "bowl_rank": "",
+   "bat_P_balls": "176",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Tushar Deshpande",
+   "bat_rank": "",
+   "bowl_rank": "109",
+   "bat_P_balls": "",
+   "bowl_P_balls": "183"
+  },
+  {
+   "player": "Yashasvi Jaiswal",
+   "bat_rank": "6",
+   "bowl_rank": "",
+   "bat_P_balls": "159",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Dhruv Jurel",
+   "bat_rank": "76",
+   "bowl_rank": "",
+   "bat_P_balls": "222",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Sushant Mishra",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Nandre Burger",
+   "bat_rank": "",
+   "bowl_rank": "69",
+   "bat_P_balls": "",
+   "bowl_P_balls": "67"
+  },
+  {
+   "player": "Ravi Bishnoi",
+   "bat_rank": "",
+   "bowl_rank": "95",
+   "bat_P_balls": "",
+   "bowl_P_balls": "460"
+  },
+  {
+   "player": "Kuldeep Sen",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Donovan Ferreira",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Yudhvir Singh",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Shubham Dubey",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Kwena Maphaka",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Yash Punja",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Lhuan Pretorius",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Emanjot Singh Chahal",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Aman Rao Perala",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Vignesh Puthur",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Vaibhav Sooryavanshi",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Ravi Singh",
+   "bat_rank": "",
+   "bowl_rank": "",
+   "bat_P_balls": "",
+   "bowl_P_balls": ""
+  },
+  {
+   "player": "Brijesh Sharma",
+   "bat_rank": "",
+   "bowl_rank": "63",
+   "bat_P_balls": "",
+   "bowl_P_balls": "70"
+  }
+ ],
+ "rr_squad_size": 27,
+ "pool_sizes": {
+  "bat": 98,
+  "bowl": 112
+ },
+ "profiles": {
+  "bat": [
+   {
+    "rank": "1",
+    "player": "Heinrich Klaasen",
+    "style": "RHB",
+    "team_2026": "Sunrisers Hyderabad",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Powerplay (1-6)": 0.051,
+     "Middle (7-15)": 0.699,
+     "Death (16-20)": 0.25
+    },
+    "split": {
+     "Pace": {
+      "balls": 83,
+      "SR": 177.1,
+      "out_pct": 3.61,
+      "boundary_pct": 27.7,
+      "WPA_per100": 0.77
+     },
+     "Spin": {
+      "balls": 73,
+      "SR": 205.5,
+      "out_pct": 4.11,
+      "boundary_pct": 31.5,
+      "WPA_per100": 1.11
+     }
+    },
+    "P_balls": "156",
+    "P_SR": "190.4",
+    "B_SR": "158.4",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "49.5",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.906"
+   },
+   {
+    "rank": "2",
+    "player": "Tim David",
+    "style": "RHB",
+    "team_2026": "Royal Challengers Bengaluru",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.418,
+     "Death (16-20)": 0.556,
+     "Powerplay (1-6)": 0.027
+    },
+    "split": {
+     "Pace": {
+      "balls": 190,
+      "SR": 205.8,
+      "out_pct": 6.32,
+      "boundary_pct": 28.9,
+      "WPA_per100": 1.34
+     },
+     "Spin": {
+      "balls": 71,
+      "SR": 131.0,
+      "out_pct": 5.63,
+      "boundary_pct": 16.9,
+      "WPA_per100": -0.05
+     }
+    },
+    "P_balls": "261",
+    "P_SR": "185.4",
+    "B_SR": "172.6",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "30.2",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.455"
+   },
+   {
+    "rank": "3",
+    "player": "Suryakumar Yadav",
+    "style": "RHB",
+    "team_2026": "Mumbai Indians",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.644,
+     "Death (16-20)": 0.156,
+     "Powerplay (1-6)": 0.201
+    },
+    "split": {
+     "Pace": {
+      "balls": 242,
+      "SR": 184.3,
+      "out_pct": 5.37,
+      "boundary_pct": 28.5,
+      "WPA_per100": 0.48
+     },
+     "Spin": {
+      "balls": 137,
+      "SR": 142.3,
+      "out_pct": 3.65,
+      "boundary_pct": 18.2,
+      "WPA_per100": 0.06
+     }
+    },
+    "P_balls": "379",
+    "P_SR": "169.1",
+    "B_SR": "162.8",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "35.6",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.289"
+   },
+   {
+    "rank": "4",
+    "player": "Rinku Singh",
+    "style": "LHB",
+    "team_2026": "Kolkata Knight Riders",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Powerplay (1-6)": 0.066,
+     "Middle (7-15)": 0.428,
+     "Death (16-20)": 0.507
+    },
+    "split": {
+     "Pace": {
+      "balls": 98,
+      "SR": 181.6,
+      "out_pct": 2.04,
+      "boundary_pct": 30.6,
+      "WPA_per100": 1.87
+     },
+     "Spin": {
+      "balls": 54,
+      "SR": 127.8,
+      "out_pct": 1.85,
+      "boundary_pct": 11.1,
+      "WPA_per100": 0.08
+     }
+    },
+    "P_balls": "152",
+    "P_SR": "162.5",
+    "B_SR": "147.9",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "82.3",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.711"
+   },
+   {
+    "rank": "5",
+    "player": "Josh Inglis",
+    "style": "RHB",
+    "team_2026": "Lucknow Super Giants",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.594,
+     "Powerplay (1-6)": 0.347,
+     "Death (16-20)": 0.059
+    },
+    "split": {
+     "Pace": {
+      "balls": 60,
+      "SR": 183.3,
+      "out_pct": 1.67,
+      "boundary_pct": 30.0,
+      "WPA_per100": 0.74
+     },
+     "Spin": {
+      "balls": 41,
+      "SR": 165.9,
+      "out_pct": 9.76,
+      "boundary_pct": 22.0,
+      "WPA_per100": -0.88
+     }
+    },
+    "P_balls": "101",
+    "P_SR": "176.2",
+    "B_SR": "169.3",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "35.6",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.395"
+   },
+   {
+    "rank": "6",
+    "player": "Yashasvi Jaiswal",
+    "style": "LHB",
+    "team_2026": "Rajasthan Royals",
+    "in_rr_2026": true,
+    "phase_share": {
+     "Powerplay (1-6)": 0.472,
+     "Middle (7-15)": 0.528
+    },
+    "split": {
+     "Pace": {
+      "balls": 101,
+      "SR": 199.0,
+      "out_pct": 0.99,
+      "boundary_pct": 34.7,
+      "WPA_per100": 1.05
+     },
+     "Spin": {
+      "balls": 58,
+      "SR": 151.7,
+      "out_pct": 6.9,
+      "boundary_pct": 19.0,
+      "WPA_per100": -0.22
+     }
+    },
+    "P_balls": "159",
+    "P_SR": "181.8",
+    "B_SR": "155.2",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "57.8",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.662"
+   },
+   {
+    "rank": "7",
+    "player": "Abhishek Sharma",
+    "style": "LHB",
+    "team_2026": "Sunrisers Hyderabad",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Powerplay (1-6)": 0.622,
+     "Middle (7-15)": 0.378
+    },
+    "split": {
+     "Pace": {
+      "balls": 66,
+      "SR": 233.3,
+      "out_pct": 7.58,
+      "boundary_pct": 45.5,
+      "WPA_per100": 0.55
+     },
+     "Spin": {
+      "balls": 32,
+      "SR": 131.2,
+      "out_pct": 9.38,
+      "boundary_pct": 12.5,
+      "WPA_per100": -1.0
+     }
+    },
+    "P_balls": "98",
+    "P_SR": "200.0",
+    "B_SR": "182.9",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "24.5",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.257"
+   },
+   {
+    "rank": "8",
+    "player": "Rajat Patidar",
+    "style": "RHB",
+    "team_2026": "Royal Challengers Bengaluru",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.728,
+     "Powerplay (1-6)": 0.235,
+     "Death (16-20)": 0.037
+    },
+    "split": {
+     "Pace": {
+      "balls": 54,
+      "SR": 135.2,
+      "out_pct": 7.41,
+      "boundary_pct": 14.8,
+      "WPA_per100": -0.89
+     },
+     "Spin": {
+      "balls": 27,
+      "SR": 196.3,
+      "out_pct": 3.7,
+      "boundary_pct": 25.9,
+      "WPA_per100": 0.88
+     }
+    },
+    "P_balls": "81",
+    "P_SR": "155.6",
+    "B_SR": "168.9",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "25.2",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.07"
+   },
+   {
+    "rank": "9",
+    "player": "Shreyas Iyer",
+    "style": "RHB",
+    "team_2026": "Punjab Kings",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Powerplay (1-6)": 0.23,
+     "Middle (7-15)": 0.604,
+     "Death (16-20)": 0.166
+    },
+    "split": {
+     "Pace": {
+      "balls": 160,
+      "SR": 181.2,
+      "out_pct": 5.62,
+      "boundary_pct": 27.5,
+      "WPA_per100": 0.39
+     },
+     "Spin": {
+      "balls": 105,
+      "SR": 164.8,
+      "out_pct": 0.95,
+      "boundary_pct": 20.0,
+      "WPA_per100": 0.72
+     }
+    },
+    "P_balls": "265",
+    "P_SR": "174.7",
+    "B_SR": "147.1",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "46.3",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.579"
+   },
+   {
+    "rank": "10",
+    "player": "Prabhsimran Singh",
+    "style": "RHB",
+    "team_2026": "Punjab Kings",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Powerplay (1-6)": 0.614,
+     "Middle (7-15)": 0.386
+    },
+    "split": {
+     "Pace": {
+      "balls": 86,
+      "SR": 179.1,
+      "out_pct": 3.49,
+      "boundary_pct": 30.2,
+      "WPA_per100": 0.48
+     },
+     "Spin": {
+      "balls": 59,
+      "SR": 147.5,
+      "out_pct": 8.47,
+      "boundary_pct": 22.0,
+      "WPA_per100": -0.36
+     }
+    },
+    "P_balls": "145",
+    "P_SR": "166.2",
+    "B_SR": "160.6",
+    "P_econ": null,
+    "B_econ": null,
+    "P_avg": "30.1",
+    "P_balls_per_wkt": null,
+    "ptop10": "0.347"
+   }
+  ],
+  "bowl": [
+   {
+    "rank": "1",
+    "player": "Sunil Narine",
+    "style": "Right-arm offbreak",
+    "team_2026": "Kolkata Knight Riders",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Death (16-20)": 0.151,
+     "Powerplay (1-6)": 0.086,
+     "Middle (7-15)": 0.763
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 19,
+      "econ": 5.68,
+      "balls_per_wkt": 19.0,
+      "dot_pct": 42.1,
+      "WPA_per100": 0.93
+     },
+     "Middle (7-15)": {
+      "balls": 175,
+      "econ": 6.51,
+      "balls_per_wkt": 21.9,
+      "dot_pct": 36.6,
+      "WPA_per100": 0.71
+     },
+     "Death (16-20)": {
+      "balls": 35,
+      "econ": 4.46,
+      "balls_per_wkt": 11.7,
+      "dot_pct": 51.4,
+      "WPA_per100": 2.13
+     }
+    },
+    "P_balls": "232",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "6.13",
+    "B_econ": "7.01",
+    "P_avg": null,
+    "P_balls_per_wkt": "19.1",
+    "ptop10": "0.744"
+   },
+   {
+    "rank": "2",
+    "player": "Rashid Khan",
+    "style": "Right-arm Leg-Break",
+    "team_2026": "Gujarat Titans",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.611,
+     "Death (16-20)": 0.193,
+     "Powerplay (1-6)": 0.196
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 77,
+      "econ": 7.17,
+      "balls_per_wkt": 38.5,
+      "dot_pct": 37.7,
+      "WPA_per100": 0.12
+     },
+     "Middle (7-15)": {
+      "balls": 241,
+      "econ": 7.0,
+      "balls_per_wkt": 26.8,
+      "dot_pct": 32.0,
+      "WPA_per100": 0.35
+     },
+     "Death (16-20)": {
+      "balls": 74,
+      "econ": 7.05,
+      "balls_per_wkt": 5.7,
+      "dot_pct": 48.6,
+      "WPA_per100": 1.92
+     }
+    },
+    "P_balls": "398",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "7.04",
+    "B_econ": "7.47",
+    "P_avg": null,
+    "P_balls_per_wkt": "16.3",
+    "ptop10": "0.479"
+   },
+   {
+    "rank": "3",
+    "player": "Kuldeep Yadav",
+    "style": "Left-arm Chinaman",
+    "team_2026": "Delhi Capitals",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.785,
+     "Death (16-20)": 0.215
+    },
+    "split": {
+     "Powerplay (1-6)": null,
+     "Middle (7-15)": {
+      "balls": 182,
+      "econ": 6.89,
+      "balls_per_wkt": 15.2,
+      "dot_pct": 30.2,
+      "WPA_per100": 0.9
+     },
+     "Death (16-20)": {
+      "balls": 48,
+      "econ": 11.62,
+      "balls_per_wkt": 16.0,
+      "dot_pct": 27.1,
+      "WPA_per100": -0.54
+     }
+    },
+    "P_balls": "237",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "7.88",
+    "B_econ": "7.83",
+    "P_avg": null,
+    "P_balls_per_wkt": "15.3",
+    "ptop10": "0.444"
+   },
+   {
+    "rank": "4",
+    "player": "Sufiyan Muqeem",
+    "style": "Left-arm Chinaman",
+    "team_2026": "not in IPL 2026 data",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.774,
+     "Death (16-20)": 0.226
+    },
+    "split": {
+     "Powerplay (1-6)": null,
+     "Middle (7-15)": {
+      "balls": 65,
+      "econ": 4.52,
+      "balls_per_wkt": 16.2,
+      "dot_pct": 53.8,
+      "WPA_per100": 1.91
+     },
+     "Death (16-20)": {
+      "balls": 17,
+      "econ": 1.41,
+      "balls_per_wkt": 8.5,
+      "dot_pct": 88.2,
+      "WPA_per100": 3.77
+     }
+    },
+    "P_balls": "84",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "3.88",
+    "B_econ": "6.79",
+    "P_avg": null,
+    "P_balls_per_wkt": "13.7",
+    "ptop10": "0.847"
+   },
+   {
+    "rank": "5",
+    "player": "Varun Chakravarthy",
+    "style": "Right-arm Leg-Break",
+    "team_2026": "Kolkata Knight Riders",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.659,
+     "Death (16-20)": 0.176,
+     "Powerplay (1-6)": 0.166
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 49,
+      "econ": 9.31,
+      "balls_per_wkt": 16.3,
+      "dot_pct": 38.8,
+      "WPA_per100": 0.43
+     },
+     "Middle (7-15)": {
+      "balls": 192,
+      "econ": 8.12,
+      "balls_per_wkt": 17.5,
+      "dot_pct": 37.0,
+      "WPA_per100": 0.37
+     },
+     "Death (16-20)": {
+      "balls": 52,
+      "econ": 6.69,
+      "balls_per_wkt": 10.4,
+      "dot_pct": 50.0,
+      "WPA_per100": 2.2
+     }
+    },
+    "P_balls": "296",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "8.07",
+    "B_econ": "8.02",
+    "P_avg": null,
+    "P_balls_per_wkt": "15.4",
+    "ptop10": "0.372"
+   },
+   {
+    "rank": "6",
+    "player": "Mohsin Khan",
+    "style": "Left-arm medium-fast",
+    "team_2026": "Lucknow Super Giants",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Powerplay (1-6)": 0.21,
+     "Middle (7-15)": 0.47,
+     "Death (16-20)": 0.32
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 21,
+      "econ": 9.14,
+      "balls_per_wkt": null,
+      "dot_pct": 38.1,
+      "WPA_per100": -0.8
+     },
+     "Middle (7-15)": {
+      "balls": 44,
+      "econ": 7.91,
+      "balls_per_wkt": 22.0,
+      "dot_pct": 34.1,
+      "WPA_per100": 0.39
+     },
+     "Death (16-20)": {
+      "balls": 31,
+      "econ": 7.55,
+      "balls_per_wkt": 5.2,
+      "dot_pct": 48.4,
+      "WPA_per100": 4.07
+     }
+    },
+    "P_balls": "100",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "8.06",
+    "B_econ": "8.3",
+    "P_avg": null,
+    "P_balls_per_wkt": "12.0",
+    "ptop10": "0.391"
+   },
+   {
+    "rank": "7",
+    "player": "Bhuvneshwar Kumar",
+    "style": "Right-arm medium",
+    "team_2026": "Royal Challengers Bengaluru",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Death (16-20)": 0.641,
+     "Middle (7-15)": 0.145,
+     "Powerplay (1-6)": 0.214
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 50,
+      "econ": 7.68,
+      "balls_per_wkt": 8.3,
+      "dot_pct": 64.0,
+      "WPA_per100": 1.98
+     },
+     "Middle (7-15)": {
+      "balls": 34,
+      "econ": 10.94,
+      "balls_per_wkt": null,
+      "dot_pct": 14.7,
+      "WPA_per100": -0.53
+     },
+     "Death (16-20)": {
+      "balls": 137,
+      "econ": 11.34,
+      "balls_per_wkt": 17.1,
+      "dot_pct": 24.1,
+      "WPA_per100": 0.13
+     }
+    },
+    "P_balls": "234",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "10.45",
+    "B_econ": "7.97",
+    "P_avg": null,
+    "P_balls_per_wkt": "15.8",
+    "ptop10": "0.332"
+   },
+   {
+    "rank": "8",
+    "player": "Mohammad Nawaz",
+    "style": "Slow left-arm orthodox",
+    "team_2026": "not in IPL 2026 data",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.912,
+     "Death (16-20)": 0.022,
+     "Powerplay (1-6)": 0.066
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 12,
+      "econ": 4.5,
+      "balls_per_wkt": 6.0,
+      "dot_pct": 66.7,
+      "WPA_per100": 2.79
+     },
+     "Middle (7-15)": {
+      "balls": 163,
+      "econ": 7.21,
+      "balls_per_wkt": 13.6,
+      "dot_pct": 31.9,
+      "WPA_per100": 0.52
+     },
+     "Death (16-20)": {
+      "balls": 4,
+      "econ": 10.5,
+      "balls_per_wkt": 4.0,
+      "dot_pct": 50.0,
+      "WPA_per100": -3.97
+     }
+    },
+    "P_balls": "182",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "7.11",
+    "B_econ": "7.46",
+    "P_avg": null,
+    "P_balls_per_wkt": "11.9",
+    "ptop10": "0.431"
+   },
+   {
+    "rank": "9",
+    "player": "Krunal Pandya",
+    "style": "Slow left-arm orthodox",
+    "team_2026": "Royal Challengers Bengaluru",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.94,
+     "Death (16-20)": 0.045,
+     "Powerplay (1-6)": 0.015
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 3,
+      "econ": 12.0,
+      "balls_per_wkt": null,
+      "dot_pct": 0.0,
+      "WPA_per100": -1.07
+     },
+     "Middle (7-15)": {
+      "balls": 186,
+      "econ": 6.32,
+      "balls_per_wkt": 20.7,
+      "dot_pct": 37.6,
+      "WPA_per100": 0.7
+     },
+     "Death (16-20)": {
+      "balls": 9,
+      "econ": 8.67,
+      "balls_per_wkt": 4.5,
+      "dot_pct": 33.3,
+      "WPA_per100": 1.13
+     }
+    },
+    "P_balls": "201",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "6.52",
+    "B_econ": "7.98",
+    "P_avg": null,
+    "P_balls_per_wkt": "18.0",
+    "ptop10": "0.312"
+   },
+   {
+    "rank": "10",
+    "player": "Mitchell Santner",
+    "style": "Slow left-arm orthodox",
+    "team_2026": "Mumbai Indians",
+    "in_rr_2026": false,
+    "phase_share": {
+     "Middle (7-15)": 0.554,
+     "Death (16-20)": 0.218,
+     "Powerplay (1-6)": 0.228
+    },
+    "split": {
+     "Powerplay (1-6)": {
+      "balls": 43,
+      "econ": 5.3,
+      "balls_per_wkt": 21.5,
+      "dot_pct": 55.8,
+      "WPA_per100": 0.56
+     },
+     "Middle (7-15)": {
+      "balls": 103,
+      "econ": 5.3,
+      "balls_per_wkt": 12.9,
+      "dot_pct": 35.0,
+      "WPA_per100": 1.16
+     },
+     "Death (16-20)": {
+      "balls": 39,
+      "econ": 9.85,
+      "balls_per_wkt": 9.8,
+      "dot_pct": 28.2,
+      "WPA_per100": 0.34
+     }
+    },
+    "P_balls": "193",
+    "P_SR": null,
+    "B_SR": null,
+    "P_econ": "6.26",
+    "B_econ": "7.8",
+    "P_avg": null,
+    "P_balls_per_wkt": "13.2",
+    "ptop10": "0.352"
+   }
+  ]
+ }
+}

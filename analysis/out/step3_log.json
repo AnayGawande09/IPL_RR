@@ -1,0 +1,248 @@
+{
+ "gmm": {
+  "mu_logLI": [
+   -1.614132730362261,
+   -0.06155005164125976
+  ],
+  "sd": [
+   2.329165296562474,
+   0.3483519920994564
+  ],
+  "pi": [
+   0.22346740056425385,
+   0.7765325994357462
+  ],
+  "iterations": 58,
+  "dead_component_LI_centre": 0.1991
+ },
+ "mean_raw_LI_by_innings": {
+  "1": 0.8578,
+  "2": 1.1579
+ },
+ "alt_top_decile_cut": {
+  "1": 1.094149,
+  "2": 2.150119
+ },
+ "tier_share": {
+  "medium": 0.4186,
+  "low": 0.3182,
+  "dead": 0.1434,
+  "high": 0.1197
+ },
+ "tier_share_by_innings": {
+  "1": {
+   "medium": 0.5244,
+   "low": 0.4477,
+   "dead": 0.0279,
+   "high": 0.0
+  },
+  "2": {
+   "medium": 0.3012,
+   "low": 0.1745,
+   "dead": 0.2717,
+   "high": 0.2526
+  }
+ },
+ "dead_LI_max": 0.3902,
+ "pressure_share": 0.1197,
+ "contrast": {
+  "high": {
+   "balls": 23043,
+   "SR": 140.18,
+   "out_pct": 6.201,
+   "dot_pct": 32.97,
+   "boundary_pct": 17.97,
+   "econ": 8.787,
+   "mean_LI": 2.584
+  },
+  "medium": {
+   "balls": 80895,
+   "SR": 139.78,
+   "out_pct": 5.159,
+   "dot_pct": 37.99,
+   "boundary_pct": 20.0,
+   "econ": 8.744,
+   "mean_LI": 1.073
+  },
+  "low": {
+   "balls": 61646,
+   "SR": 138.53,
+   "out_pct": 5.193,
+   "dot_pct": 32.33,
+   "boundary_pct": 17.23,
+   "econ": 8.631,
+   "mean_LI": 0.691
+  },
+  "dead": {
+   "balls": 27667,
+   "SR": 140.0,
+   "out_pct": 6.336,
+   "dot_pct": 36.32,
+   "boundary_pct": 18.68,
+   "econ": 8.765,
+   "mean_LI": 0.149
+  }
+ },
+ "by_phase": {
+  "inn1-PP-N": {
+   "balls": 31202,
+   "SR": 134.21,
+   "out_pct": 4.4,
+   "dot_pct": 44.84,
+   "boundary_pct": 21.4,
+   "econ": 8.395,
+   "mean_LI": 1.041
+  },
+  "inn1-PP-share": 0.0,
+  "inn1-MID-N": {
+   "balls": 44275,
+   "SR": 132.35,
+   "out_pct": 4.524,
+   "dot_pct": 30.79,
+   "boundary_pct": 15.06,
+   "econ": 8.201,
+   "mean_LI": 0.763
+  },
+  "inn1-MID-share": 0.0,
+  "inn1-DEATH-N": {
+   "balls": 23374,
+   "SR": 163.54,
+   "out_pct": 8.069,
+   "dot_pct": 28.36,
+   "boundary_pct": 21.75,
+   "econ": 10.319,
+   "mean_LI": 0.862
+  },
+  "inn1-DEATH-share": 0.0,
+  "inn2-PP-N": {
+   "balls": 22061,
+   "SR": 135.86,
+   "out_pct": 4.655,
+   "dot_pct": 44.91,
+   "boundary_pct": 21.88,
+   "econ": 8.53,
+   "mean_LI": 1.052
+  },
+  "inn2-PP-P": {
+   "balls": 4368,
+   "SR": 134.78,
+   "out_pct": 4.853,
+   "dot_pct": 43.3,
+   "boundary_pct": 21.06,
+   "econ": 8.38,
+   "mean_LI": 1.763
+  },
+  "inn2-PP-share": 0.143,
+  "inn2-MID-N": {
+   "balls": 18050,
+   "SR": 133.83,
+   "out_pct": 4.648,
+   "dot_pct": 30.23,
+   "boundary_pct": 15.48,
+   "econ": 8.293,
+   "mean_LI": 0.934
+  },
+  "inn2-MID-P": {
+   "balls": 11761,
+   "SR": 130.53,
+   "out_pct": 5.212,
+   "dot_pct": 31.2,
+   "boundary_pct": 14.84,
+   "econ": 8.143,
+   "mean_LI": 1.985
+  },
+  "inn2-MID-share": 0.27,
+  "inn2-DEATH-N": {
+   "balls": 3579,
+   "SR": 157.59,
+   "out_pct": 6.873,
+   "dot_pct": 29.15,
+   "boundary_pct": 21.04,
+   "econ": 9.922,
+   "mean_LI": 0.836
+  },
+  "inn2-DEATH-P": {
+   "balls": 6913,
+   "SR": 160.0,
+   "out_pct": 8.737,
+   "dot_pct": 29.42,
+   "boundary_pct": 21.34,
+   "econ": 10.147,
+   "mean_LI": 4.085
+  },
+  "inn2-DEATH-share": 0.397
+ },
+ "psychology": {
+  "LIq1-dots>=3": {
+   "out_pct": 6.046,
+   "n": 3060
+  },
+  "LIq1-dots<3": {
+   "out_pct": 5.913,
+   "n": 45205
+  },
+  "LIq1-wk12>=2": {
+   "out_pct": 7.051,
+   "n": 7361
+  },
+  "LIq1-wk12<2": {
+   "out_pct": 5.718,
+   "n": 40904
+  },
+  "LIq2-dots>=3": {
+   "out_pct": 4.454,
+   "n": 2043
+  },
+  "LIq2-dots<3": {
+   "out_pct": 5.13,
+   "n": 46417
+  },
+  "LIq2-wk12>=2": {
+   "out_pct": 5.008,
+   "n": 4912
+  },
+  "LIq2-wk12<2": {
+   "out_pct": 5.112,
+   "n": 43548
+  },
+  "LIq3-dots>=3": {
+   "out_pct": 4.851,
+   "n": 3298
+  },
+  "LIq3-dots<3": {
+   "out_pct": 5.511,
+   "n": 45019
+  },
+  "LIq3-wk12>=2": {
+   "out_pct": 6.13,
+   "n": 4372
+  },
+  "LIq3-wk12<2": {
+   "out_pct": 5.4,
+   "n": 43945
+  },
+  "LIq4-dots>=3": {
+   "out_pct": 5.034,
+   "n": 2821
+  },
+  "LIq4-dots<3": {
+   "out_pct": 5.382,
+   "n": 45388
+  },
+  "LIq4-wk12>=2": {
+   "out_pct": 5.568,
+   "n": 4939
+  },
+  "LIq4-wk12<2": {
+   "out_pct": 5.339,
+   "n": 43270
+  }
+ },
+ "MH_OR_dotstreak3": 0.929,
+ "MH_OR_wk12_2": 1.121,
+ "knockout": {
+  "balls": 7323,
+  "mean_LI": 1.038,
+  "pressure_share": 0.139
+ }
+}

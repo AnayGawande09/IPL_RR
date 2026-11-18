@@ -1,0 +1,20 @@
+Retain             bat  #6  Yashasvi Jaiswal     Middle overs    RR player (2026 squad)       Core             
+Back - priority 1  bat  #1  Heinrich Klaasen     Death finisher  Auction target (outside RR)  Core             
+Back - priority 1  bat  #2  Tim David            Death finisher  Auction target (outside RR)  Core             
+Back - priority 1  bowl #6  Mohsin Khan          Pace            Auction target (outside RR)  Core             
+Back - priority 1  bowl #7  Bhuvneshwar Kumar    Pace            Auction target (outside RR)  Core             
+Back - priority 2  bat  #4  Rinku Singh          Death finisher  Auction target (outside RR)  Clutch-dependent clutch-dependent
+Depth option       bat  #3  Suryakumar Yadav     Middle overs    Auction target (outside RR)  Core             
+Depth option       bat  #5  Josh Inglis          Middle overs    Auction target (outside RR)  Core             
+Depth option       bowl #1  Sunil Narine         Spin depth      Auction target (outside RR)  Core             
+Depth option       bowl #2  Rashid Khan          Spin depth      Auction target (outside RR)  Core             
+Depth option       bowl #3  Kuldeep Yadav        Spin depth      Auction target (outside RR)  Core             
+Depth option       bowl #5  Varun Chakravarthy   Spin depth      Auction target (outside RR)  Core             
+Watch              bat  #7  Abhishek Sharma      Top order       Auction target (outside RR)  Core             thin sample
+Watch              bat  #8  Rajat Patidar        Middle overs    Auction target (outside RR)  Core             thin sample
+Watch              bat  #9  Shreyas Iyer         Middle overs    Auction target (outside RR)  Clutch-dependent clutch-dependent
+Watch              bat  #10 Prabhsimran Singh    Top order       Auction target (outside RR)  Clutch-dependent clutch-dependent
+Watch              bowl #4  Sufiyan Muqeem       Spin depth      Auction target (outside RR)  Clutch-dependent clutch-dependent, thin sample, IPL-untested
+Watch              bowl #8  Mohammad Nawaz       Spin depth      Auction target (outside RR)  Clutch-dependent clutch-dependent, IPL-untested
+Watch              bowl #9  Krunal Pandya        Spin depth      Auction target (outside RR)  Clutch-dependent clutch-dependent
+Watch              bowl #10 Mitchell Santner     Spin depth      Auction target (outside RR)  Clutch-dependent clutch-dependent

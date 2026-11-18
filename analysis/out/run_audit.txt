@@ -1,0 +1,323 @@
+{
+ "A_integrity": {
+  "deliveries": 200999,
+  "duplicate_delivery_keys": 0,
+  "innings_with_ball_number_gaps": 0,
+  "innings_over_10_wickets": 0,
+  "ball_matches_missing_from_matches_csv": 0,
+  "striker_in_XI_pct": 99.959,
+  "non_striker_in_XI_pct": 99.951,
+  "bowler_in_XI_pct": 99.985,
+  "dismissed_is_on_strike_or_non_striker_pct": 100.0,
+  "four_six_flags_consistent_pct": 100.0,
+  "won_by_wickets_reproduced": "372/372",
+  "won_by_runs_n": 362,
+  "won_by_runs_exact_pct": 99.7,
+  "won_by_runs_within_5_pct": 99.7,
+  "won_by_runs_MAE": 0.1,
+  "note": "extras = extras1_runs + extras_2_runs from the updated ball file (Nov 2026), which stores the real extras runs; innings totals now reproduce official margins."
+ },
+ "B_recount": {
+  "players_checked": 20,
+  "mismatches": []
+ },
+ "C_robustness": {
+  "bat": {
+   "leave_one_component_out_overlap_of_10": {
+    "without C1 WPA": 8,
+    "without C2 pressure RV": 5,
+    "without C3 clutch": 8,
+    "without C4 consistency": 6
+   },
+   "threshold_overlap_of_10": {
+    "min40": 7,
+    "min100": 8
+   },
+   "in_top10_under_every_leave_one_out": [
+    "Heinrich Klaasen",
+    "Tim David",
+    "Rinku Singh",
+    "Yashasvi Jaiswal",
+    "Shreyas Iyer"
+   ],
+   "eligible_min40": 107,
+   "eligible_min100": 66
+  },
+  "bowl": {
+   "leave_one_component_out_overlap_of_10": {
+    "without C1 WPA": 8,
+    "without C2 pressure RV": 6,
+    "without C3 clutch": 8,
+    "without C4 consistency": 8
+   },
+   "threshold_overlap_of_10": {
+    "min40": 7,
+    "min100": 7
+   },
+   "in_top10_under_every_leave_one_out": [
+    "Sunil Narine",
+    "Rashid Khan",
+    "Sufiyan Muqeem",
+    "Varun Chakravarthy",
+    "Mitchell Santner"
+   ],
+   "eligible_min40": 121,
+   "eligible_min100": 75
+  }
+ },
+ "D_out_of_sample": {
+  "design": "rated on 2022-24 live balls only; tested on players with >= 30 pressure balls in 2025-26. The win-probability model itself was fitted on all seasons (context model only, no player terms).",
+  "bat": {
+   "Our composite (2022-24 only)": {
+    "rho_vs_2025_26_pressure_RV": 0.065,
+    "ci90": [
+     -0.22,
+     0.306
+    ],
+    "rho_vs_2025_26_pressure_WPA": 0.113
+   },
+   "Naive: raw pressure run value per ball": {
+    "rho_vs_2025_26_pressure_RV": -0.074,
+    "ci90": [
+     -0.35,
+     0.211
+    ],
+    "rho_vs_2025_26_pressure_WPA": -0.167
+   },
+   "Naive: raw pressure strike rate": {
+    "rho_vs_2025_26_pressure_RV": 0.09,
+    "ci90": [
+     -0.233,
+     0.383
+    ],
+    "rho_vs_2025_26_pressure_WPA": -0.045
+   },
+   "Naive: overall run value (ignores pressure)": {
+    "rho_vs_2025_26_pressure_RV": 0.042,
+    "ci90": [
+     -0.248,
+     0.333
+    ],
+    "rho_vs_2025_26_pressure_WPA": 0.116
+   },
+   "components": {
+    "C1 WPA": -0.036,
+    "C2 pressure RV": 0.075,
+    "C3 clutch": 0.0,
+    "C4 consistency": 0.009
+   },
+   "top_quarter_by_composite_mean_2025_26_RV": 0.2429,
+   "other_three_quarters_mean_2025_26_RV": -0.0258,
+   "players_tested": 38
+  },
+  "bowl": {
+   "Our composite (2022-24 only)": {
+    "rho_vs_2025_26_pressure_RV": 0.203,
+    "ci90": [
+     -0.007,
+     0.412
+    ],
+    "rho_vs_2025_26_pressure_WPA": 0.15
+   },
+   "Naive: raw pressure run value per ball": {
+    "rho_vs_2025_26_pressure_RV": 0.236,
+    "ci90": [
+     0.005,
+     0.452
+    ],
+    "rho_vs_2025_26_pressure_WPA": 0.207
+   },
+   "Naive: raw pressure economy (lower = better)": {
+    "rho_vs_2025_26_pressure_RV": 0.201,
+    "ci90": [
+     -0.075,
+     0.442
+    ],
+    "rho_vs_2025_26_pressure_WPA": 0.13
+   },
+   "Naive: overall run value (ignores pressure)": {
+    "rho_vs_2025_26_pressure_RV": 0.499,
+    "ci90": [
+     0.295,
+     0.671
+    ],
+    "rho_vs_2025_26_pressure_WPA": 0.362
+   },
+   "components": {
+    "C1 WPA": 0.156,
+    "C2 pressure RV": 0.305,
+    "C3 clutch": -0.026,
+    "C4 consistency": 0.234
+   },
+   "top_quarter_by_composite_mean_2025_26_RV": 0.0648,
+   "other_three_quarters_mean_2025_26_RV": 0.0172,
+   "players_tested": 49
+  }
+ },
+ "E_tiers": {
+  "bat": [
+   {
+    "rank": 1,
+    "player": "Heinrich Klaasen",
+    "C2_rank": 1,
+    "boot_p_top10": 0.906,
+    "all_leave_one_out": true,
+    "tier": "Core"
+   },
+   {
+    "rank": 2,
+    "player": "Tim David",
+    "C2_rank": 3,
+    "boot_p_top10": 0.455,
+    "all_leave_one_out": true,
+    "tier": "Core"
+   },
+   {
+    "rank": 3,
+    "player": "Suryakumar Yadav",
+    "C2_rank": 4,
+    "boot_p_top10": 0.289,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 4,
+    "player": "Rinku Singh",
+    "C2_rank": 21,
+    "boot_p_top10": 0.711,
+    "all_leave_one_out": true,
+    "tier": "Clutch-dependent"
+   },
+   {
+    "rank": 5,
+    "player": "Josh Inglis",
+    "C2_rank": 7,
+    "boot_p_top10": 0.395,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 6,
+    "player": "Yashasvi Jaiswal",
+    "C2_rank": 5,
+    "boot_p_top10": 0.662,
+    "all_leave_one_out": true,
+    "tier": "Core"
+   },
+   {
+    "rank": 7,
+    "player": "Abhishek Sharma",
+    "C2_rank": 2,
+    "boot_p_top10": 0.257,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 8,
+    "player": "Rajat Patidar",
+    "C2_rank": 6,
+    "boot_p_top10": 0.07,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 9,
+    "player": "Shreyas Iyer",
+    "C2_rank": 14,
+    "boot_p_top10": 0.579,
+    "all_leave_one_out": true,
+    "tier": "Clutch-dependent"
+   },
+   {
+    "rank": 10,
+    "player": "Prabhsimran Singh",
+    "C2_rank": 12,
+    "boot_p_top10": 0.347,
+    "all_leave_one_out": false,
+    "tier": "Clutch-dependent"
+   }
+  ],
+  "bowl": [
+   {
+    "rank": 1,
+    "player": "Sunil Narine",
+    "C2_rank": 6,
+    "boot_p_top10": 0.744,
+    "all_leave_one_out": true,
+    "tier": "Core"
+   },
+   {
+    "rank": 2,
+    "player": "Rashid Khan",
+    "C2_rank": 9,
+    "boot_p_top10": 0.479,
+    "all_leave_one_out": true,
+    "tier": "Core"
+   },
+   {
+    "rank": 3,
+    "player": "Kuldeep Yadav",
+    "C2_rank": 8,
+    "boot_p_top10": 0.444,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 4,
+    "player": "Sufiyan Muqeem",
+    "C2_rank": 12,
+    "boot_p_top10": 0.847,
+    "all_leave_one_out": true,
+    "tier": "Clutch-dependent"
+   },
+   {
+    "rank": 5,
+    "player": "Varun Chakravarthy",
+    "C2_rank": 3,
+    "boot_p_top10": 0.372,
+    "all_leave_one_out": true,
+    "tier": "Core"
+   },
+   {
+    "rank": 6,
+    "player": "Mohsin Khan",
+    "C2_rank": 7,
+    "boot_p_top10": 0.391,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 7,
+    "player": "Bhuvneshwar Kumar",
+    "C2_rank": 5,
+    "boot_p_top10": 0.332,
+    "all_leave_one_out": false,
+    "tier": "Core"
+   },
+   {
+    "rank": 8,
+    "player": "Mohammad Nawaz",
+    "C2_rank": 29,
+    "boot_p_top10": 0.431,
+    "all_leave_one_out": false,
+    "tier": "Clutch-dependent"
+   },
+   {
+    "rank": 9,
+    "player": "Krunal Pandya",
+    "C2_rank": 20,
+    "boot_p_top10": 0.312,
+    "all_leave_one_out": false,
+    "tier": "Clutch-dependent"
+   },
+   {
+    "rank": 10,
+    "player": "Mitchell Santner",
+    "C2_rank": 18,
+    "boot_p_top10": 0.352,
+    "all_leave_one_out": true,
+    "tier": "Clutch-dependent"
+   }
+  ]
+ }
+}

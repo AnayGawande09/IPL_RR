@@ -1,0 +1,613 @@
+<title>Reliable Under Pressure</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; a tab bar switches five views; the workflow is a clickable vertical chain with a detail panel beside it. */
+:root {
+  --bg: #f6f7f9; --surface: #ffffff; --ink: #16181d; --ink2: #5a606c; --line: #e2e5eb;
+  --accent: #b5175a; --accent-soft: #fbe9f0; --core: #1f6f5c; --core-soft: #e3f2ed; --warn: #8a5a00; --warn-soft: #fdf1dc;
+  --bar: #c9ced8;
+  --display: "Barlow Semi Condensed", "Arial Narrow", system-ui, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111317; --surface: #191c21; --ink: #eceef2; --ink2: #9ca3af; --line: #2b2f37;
+  --accent: #f0679c; --accent-soft: #3a1a28; --core: #6fd1b4; --core-soft: #17302a; --warn: #f2b65a; --warn-soft: #33270f;
+  --bar: #3a404b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111317; --surface: #191c21; --ink: #eceef2; --ink2: #9ca3af; --line: #2b2f37;
+  --accent: #f0679c; --accent-soft: #3a1a28; --core: #6fd1b4; --core-soft: #17302a; --warn: #f2b65a; --warn-soft: #33270f;
+  --bar: #3a404b; color-scheme: dark }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body); }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 28px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: .01em; }
+h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; }
+h2 { font-size: 24px; font-weight: 600; }
+h3 { font-size: 18px; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+.muted { color: var(--ink2); }
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+header { display: grid; gap: 10px; margin-bottom: 22px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 6px; font-size: 14px; color: var(--ink2); }
+.facts b { color: var(--ink); font-family: var(--mono); font-weight: 500; }
+
+nav { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 26px; overflow-x: auto; }
+nav button { appearance: none; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--ink2);
+  font: 600 15px var(--body); padding: 10px 12px; cursor: pointer; white-space: nowrap; margin-bottom: -1px; }
+nav button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+nav button:hover { color: var(--ink); }
+button:focus-visible, summary:focus-visible, .node:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+section[role="tabpanel"] { display: grid; gap: 22px; }
+.intro { display: grid; gap: 6px; }
+
+/* players */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.cols > * { min-width: 0; }
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: 14px; color: var(--ink2); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { appearance: none; border: 0; background: var(--surface); color: var(--ink2); font: 600 13px var(--body); padding: 6px 12px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+ol.plist { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid var(--line); }
+ol.plist > li { border-bottom: 1px solid var(--line); }
+.prow { width: 100%; appearance: none; background: none; border: 0; color: inherit; text-align: left; cursor: pointer;
+  display: grid; grid-template-columns: 28px 1fr auto; gap: 2px 10px; padding: 11px 4px; font: inherit; }
+.prow:hover { background: var(--surface); }
+.prow .rk { font: 600 18px var(--display); color: var(--accent); grid-row: span 2; }
+.prow .nm { font-weight: 600; }
+.prow .st { grid-column: 2; font-size: 13.5px; color: var(--ink2); }
+.prow .p10 { grid-row: span 2; align-self: center; display: grid; gap: 3px; justify-items: end; font-size: 12px; color: var(--ink2); }
+.meter { width: 64px; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--ink2); border-radius: 3px; }
+.chip { display: inline-block; font: 600 11px/1.7 var(--body); padding: 0 7px; border-radius: 10px; margin-left: 6px; vertical-align: 1px; }
+.chip.core { background: var(--core-soft); color: var(--core); }
+.chip.clutch { background: var(--warn-soft); color: var(--warn); }
+.chip.thin { border: 1px solid var(--line); color: var(--ink2); }
+.chip.rr { background: var(--accent-soft); color: var(--accent); }
+.pdet { padding: 2px 4px 16px 42px; display: grid; gap: 10px; font-size: 14.5px; }
+.kv { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 13.5px; color: var(--ink2); }
+.kv b { color: var(--ink); font-family: var(--mono); font-weight: 500; }
+.nextin { margin-top: 10px; }
+.dl { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.dl a { font: 600 13.5px var(--body); color: var(--accent); text-decoration: none; border: 1px solid var(--line); border-radius: 6px; padding: 5px 11px; background: var(--surface); }
+.dl a:hover { border-color: var(--accent); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13.5px; color: var(--ink2); }
+
+/* workflow */
+.flow { display: grid; grid-template-columns: minmax(230px, 300px) 1fr; gap: 28px; align-items: start; }
+.flow > * { min-width: 0; }
+.chain { display: grid; gap: 0; }
+.node { appearance: none; text-align: left; font: inherit; color: inherit; cursor: pointer; width: 100%;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; grid-template-columns: 26px 1fr; gap: 0 8px; }
+.node .ix { font: 600 15px var(--display); color: var(--ink2); grid-row: span 2; }
+.node .t { font-weight: 600; font-size: 15px; }
+.node .s { font-size: 12.5px; color: var(--ink2); }
+.node[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.node[aria-pressed="true"] .ix { color: var(--accent); }
+.link { height: 18px; display: flex; justify-content: center; }
+.link::before { content: ""; width: 1.5px; background: var(--bar); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; display: grid; gap: 14px; position: sticky; top: calc(12px + env(safe-area-inset-top, 0px)); }
+.panel dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 8px 14px; font-size: 14.5px; }
+.panel dt { color: var(--ink2); font-size: 13px; font-weight: 600; padding-top: 2px; }
+.panel dd { margin: 0; }
+.stats { display: flex; flex-wrap: wrap; gap: 10px; }
+.stat { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; min-width: 120px; }
+.stat b { display: block; font: 500 18px var(--mono); }
+.stat span { font-size: 12.5px; color: var(--ink2); }
+.algos { display: flex; flex-wrap: wrap; gap: 6px; }
+.algos button { appearance: none; font: 600 12.5px var(--body); border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 14px; padding: 3px 10px; cursor: pointer; }
+.algos button:hover { border-color: var(--accent); color: var(--accent); }
+.mini { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 13px; }
+.mini span { border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; background: var(--bg); }
+.mini i { color: var(--ink2); font-style: normal; }
+
+/* algorithms */
+.subtabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.subtabs button { appearance: none; font: 600 13.5px var(--body); border: 1px solid var(--line); background: var(--surface); color: var(--ink2); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.subtabs button[aria-selected="true"] { color: var(--ink); border-color: var(--ink); }
+.alist { display: grid; gap: 0; border-top: 1px solid var(--line); }
+details.al { border-bottom: 1px solid var(--line); }
+details.al summary { cursor: pointer; list-style: none; padding: 13px 4px; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; }
+details.al summary::-webkit-details-marker { display: none; }
+details.al summary .an { font-weight: 600; }
+details.al summary .ao { font-size: 13px; color: var(--ink2); grid-column: 1; }
+details.al summary .ar { grid-row: span 2; align-self: center; font-size: 12px; color: var(--ink2); }
+details.al summary .ar::after { content: "+"; font: 500 18px var(--mono); margin-left: 8px; color: var(--ink2); }
+details.al[open] summary .ar::after { content: "–"; }
+details.al .ab { padding: 0 4px 16px; display: grid; gap: 8px; font-size: 14.5px; }
+details.al .ab p b { font-weight: 600; }
+details.al.flash summary { background: var(--accent-soft); }
+
+/* checks / rr */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.grid2 > * { min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: grid; gap: 12px; align-content: start; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th { text-align: left; font-weight: 600; color: var(--ink2); font-size: 12.5px; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+td.r, th.r { text-align: right; }
+tr.hl td { background: var(--accent-soft); }
+.note { font-size: 13.5px; color: var(--ink2); }
+.pmdl { margin: 0; display: grid; grid-template-columns: 96px 1fr; gap: 8px 12px; font-size: 14px; }
+.pmdl dt { color: var(--ink2); font-weight: 600; font-size: 13px; }
+.pmdl dd { margin: 0; }
+.callout { border-left: 0; background: var(--warn-soft); border-radius: 8px; padding: 12px 14px; font-size: 14.5px; }
+.ok { color: var(--core); font-weight: 600; }
+svg text { font-family: var(--body); }
+.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; padding: 5px 8px; border-radius: 5px; z-index: 20; max-width: 260px; }
+ol.pri { margin: 0; padding-left: 20px; display: grid; gap: 8px; font-size: 15px; }
+
+@media (max-width: 760px) {
+  .cols, .flow, .grid2 { grid-template-columns: 1fr; }
+  .panel { position: static; }
+  .panel dl { grid-template-columns: 1fr; gap: 2px; }
+  .panel dd { margin-bottom: 8px; }
+  .pdet { padding-left: 4px; }
+}
+@media (prefers-reduced-motion: no-preference) { .node, .prow, nav button { transition: background .15s, border-color .15s, color .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">SupeRR Selector · Season 2 · IPL 2027 auction</div>
+    <h1>Reliable Under Pressure</h1>
+    <p class="muted">Who Rajasthan Royals should back, how pressure was measured, and every step from raw deliveries to the two top-10 lists. Built only from the supplied data pack.</p>
+    <div class="facts" id="facts"></div>
+    <!--SITE_LINKS-->
+  </header>
+
+  <nav role="tablist" aria-label="Sections">
+    <button role="tab" id="t-players" aria-controls="s-players" data-tab="players" aria-selected="true">Players</button>
+    <button role="tab" id="t-back" aria-controls="s-back" data-tab="back" aria-selected="false">Who RR should back</button>
+    <button role="tab" id="t-workflow" aria-controls="s-workflow" data-tab="workflow" aria-selected="false">Workflow</button>
+    <button role="tab" id="t-algorithms" aria-controls="s-algorithms" data-tab="algorithms" aria-selected="false">Algorithms</button>
+    <button role="tab" id="t-checks" aria-controls="s-checks" data-tab="checks" aria-selected="false">Accuracy checks</button>
+    <button role="tab" id="t-pm" aria-controls="s-pm" data-tab="pm" aria-selected="false">Public-data model</button>
+    <button role="tab" id="t-rr" aria-controls="s-rr" data-tab="rr" aria-selected="false">RR fit</button>
+  </nav>
+
+  <section role="tabpanel" id="s-players" aria-labelledby="t-players">
+    <div class="intro">
+      <h2>The two top-10 lists</h2>
+      <p class="muted">Ranked by a model-averaged pressure rating. Select a player to see the evidence and how they would fit RR.</p>
+    </div>
+    <div class="toolbar">
+      <span>Show</span>
+      <div class="seg" role="group" aria-label="Filter players">
+        <button id="f-all" aria-pressed="true">All 10</button>
+        <button id="f-core" aria-pressed="false">Core only</button>
+      </div>
+    </div>
+    <div class="legend">
+      <span><span class="chip core">Core</span> also top 10 on pressure run value alone, the part that held up in the 2022–24 → 2025–26 test</span>
+      <span><span class="chip clutch">Clutch-dependent</span> rank leans on the less repeatable clutch parts</span>
+      <span><span class="chip thin">thin sample</span> under 100 pressure balls</span>
+      <span>Bar = share of bootstrap resamples that keep the player in the top 10</span>
+    </div>
+    <div class="cols">
+      <div><h3>Batters</h3><ol class="plist" id="list-bat"></ol><p class="note nextin" id="next-bat"></p></div>
+      <div><h3>Bowlers</h3><ol class="plist" id="list-bowl"></ol><p class="note nextin" id="next-bowl"></p></div>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="s-back" aria-labelledby="t-back" hidden>
+    <div class="intro">
+      <h2>Who Rajasthan Royals should back at the IPL 2027 auction</h2>
+      <p class="muted" id="back-intro"></p>
+    </div>
+    <div id="board"></div>
+    <p class="note">Rules: a death finisher has at least 25% of their pressure balls in overs 16–20. RR's measured gaps are death-overs batting in pressure chases, pace strike rate and death-over dot balls; RR's pressure spin is already above league level. Priority 1 = fills a gap, Core, at least 100 pressure balls and an IPL record. Price, availability and the official 2027 retention and auction lists are outside the data.</p>
+  </section>
+
+  <section role="tabpanel" id="s-workflow" aria-labelledby="t-workflow" hidden>
+    <div class="intro">
+      <h2>How the players were found</h2>
+      <p class="muted">Nine stages, each a separate script that feeds the next. Select a stage to see what it does, why, and what it produced.</p>
+    </div>
+    <div class="flow">
+      <div class="chain" id="chain"></div>
+      <div class="panel" id="panel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="s-algorithms" aria-labelledby="t-algorithms" hidden>
+    <div class="intro">
+      <h2>Algorithms used</h2>
+      <p class="muted">Grouped by the job they do. Select one to see what it does, why we used it and what it gave here.</p>
+    </div>
+    <div class="subtabs" role="tablist" aria-label="Algorithm groups" id="agroups"></div>
+    <div class="alist" id="alist"></div>
+  </section>
+
+  <section role="tabpanel" id="s-checks" aria-labelledby="t-checks" hidden>
+    <div class="intro">
+      <h2>How accurate is it?</h2>
+      <p class="muted">The full pipeline was re-run from the raw files and reproduced every output exactly. These checks were then run on top.</p>
+    </div>
+    <div class="card">
+      <h3>Does it predict the future?</h3>
+      <p class="note" id="oos-note"></p>
+      <div class="grid2"><div id="oos-bat"></div><div id="oos-bowl"></div></div>
+      <div class="callout" id="oos-call"></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Raw data integrity</h3><div class="tbl" id="integrity"></div><p class="note" id="integ-note"></p></div>
+      <div class="card"><h3>Does the list survive changes?</h3><div class="tbl" id="robust"></div><p class="note" id="robust-note"></p></div>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="s-pm" aria-labelledby="t-pm" hidden>
+    <div class="intro">
+      <h2>A separate check: machine-learning model on public data</h2>
+      <p class="muted">Trained on every IPL match 2008–2026 (Cricsheet) plus public auction history 2013–2025, with its own definition of pressure. It is a cross-check only: nothing from it feeds into our lists or the auction board.</p>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>How it works</h3><dl class="pmdl" id="pm-how"></dl></div>
+      <div class="card"><h3>Which model won</h3><div class="tbl" id="pm-val"></div><p class="note">Mean Spearman correlation between predicted and actual next-season pressure value, 2016–2024, each season predicted from earlier seasons only.</p><p class="note" id="pm-uses"></p></div>
+    </div>
+    <div class="card"><h3>Head to head on IPL 2025–26</h3>
+      <p class="note">Both methods frozen at the end of 2024, then compared with what players actually did under pressure in 2025–26, judged by each method's definition of pressure. Higher ρ = closer to what happened.</p>
+      <div class="tbl" id="pm-h2h"></div><div class="callout" id="pm-call"></div></div>
+    <div class="grid2">
+      <div class="card"><h3>IPL 2027 · batters</h3><p class="note" id="pm-sum-bat"></p><div class="tbl" id="pm-bat"></div></div>
+      <div class="card"><h3>IPL 2027 · bowlers</h3><p class="note" id="pm-sum-bowl"></p><div class="tbl" id="pm-bowl"></div></div>
+    </div>
+    <p class="note">The public model sees IPL matches only, so T20I-only players cannot be rated by it. Data: Cricsheet (Open Data Commons Attribution License) and the public GitHub repository psai09599-stack/IPL-Auction-Intelligence.</p>
+  </section>
+
+  <section role="tabpanel" id="s-rr" aria-labelledby="t-rr" hidden>
+    <div class="intro">
+      <h2>Where RR need help</h2>
+      <p class="muted">RR's own pressure-ball record in IPL 2025–26 against the rest of the IPL. Highlighted rows are the gaps the shortlist is matched to.</p>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Batting under pressure</h3><div class="tbl" id="rr-bat"></div></div>
+      <div class="card"><h3>Bowling under pressure</h3><div class="tbl" id="rr-bowl"></div></div>
+    </div>
+    <div class="card">
+      <h3>Suggested auction priorities</h3>
+      <ol class="pri" id="pri"></ol>
+      <p class="note" id="rr-note"></p>
+    </div>
+  </section>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const D = /*DATA*/null;
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const pct = (x, d = 0) => (100 * x).toFixed(d) + '%';
+const fmt = n => Number(n).toLocaleString('en-US');
+const N = D.n;
+
+$('#facts').innerHTML = [
+  ['deliveries', fmt(N.deliveries)], ['innings', fmt(N.innings)], ['pressure balls', pct(N.pressure_share, 1)],
+  ['batters rated', N.pool_bat], ['bowlers rated', N.pool_bowl]
+].map(([k, v]) => `<span><b>${v}</b> ${k}</span>`).join('');
+
+/* ---------- tabs ---------- */
+const tabs = [...document.querySelectorAll('nav [role=tab]')];
+function show(id, push = true) {
+  tabs.forEach(t => { const on = t.dataset.tab === id; t.setAttribute('aria-selected', on); $('#' + t.getAttribute('aria-controls')).hidden = !on; });
+  if (push) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+}
+tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.tab)));
+tabs.forEach((t, i) => t.addEventListener('keydown', e => {
+  if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+  const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; n.focus(); n.click();
+}));
+const h = location.hash.slice(1); if (tabs.some(t => t.dataset.tab === h)) show(h, false);
+
+/* ---------- players ---------- */
+let coreOnly = false;
+function renderList(role) {
+  const ol = $('#list-' + role);
+  ol.innerHTML = D[role].filter(p => !coreOnly || p.tier === 'Core').map(p => {
+    const better = role === 'bat' ? +p.pv > +p.uv : +p.pv < +p.uv;
+    return `<li>
+    <button class="prow" aria-expanded="false" aria-controls="d-${role}-${p.rank}">
+      <span class="rk">${p.rank}</span>
+      <span class="nm">${esc(p.name)}<span class="chip ${p.tier === 'Core' ? 'core' : 'clutch'}">${p.tier}</span>${p.balls < 100 ? '<span class="chip thin">thin sample</span>' : ''}${p.rr ? '<span class="chip rr">RR 2026</span>' : ''}</span>
+      <span class="p10"><span class="meter"><i style="width:${(100 * p.p10).toFixed(0)}%"></i></span><span class="num">${pct(p.p10)}</span></span>
+      <span class="st">${p.lab} <span class="num">${p.pv}</span> under pressure · usual <span class="num">${p.uv}</span>${better ? '' : ' · below own usual'} · <b style="color:var(--ink)">RR: ${esc(p.call)}</b></span>
+    </button>
+    <div class="pdet" id="d-${role}-${p.rank}" hidden>
+      <div class="kv"><span>Pressure balls <b>${p.balls}</b></span><span>Pressure innings <b>${p.inn}</b></span><span>IPL share <b>${pct(p.ipl)}</b></span>
+        <span>Rank on pressure run value alone <b>${p.c2}</b></span><span>Rank all data / IPL only / recent <b>${p.ranks.join(' / ')}</b></span></div>
+      <div class="kv"><span>${esc(p.style)}</span><span>2026 team: ${esc(p.team)}</span></div>
+      <p><b>How this player could strengthen RR.</b> ${esc(p.fit)}</p>
+    </div></li>`;
+  }).join('');
+  ol.querySelectorAll('.prow').forEach(b => b.addEventListener('click', () => {
+    const d = document.getElementById(b.getAttribute('aria-controls')); d.hidden = !d.hidden; b.setAttribute('aria-expanded', !d.hidden);
+  }));
+}
+function renderPlayers() { renderList('bat'); renderList('bowl'); }
+[['#f-all', false], ['#f-core', true]].forEach(([s, v]) => $(s).addEventListener('click', () => {
+  coreOnly = v; $('#f-all').setAttribute('aria-pressed', !v); $('#f-core').setAttribute('aria-pressed', v); renderPlayers();
+}));
+renderPlayers();
+['bat', 'bowl'].forEach(r => { $('#next-' + r).innerHTML = '<b>Next in line:</b> ' + D.next[r].map(([k, n, b]) => `${k}. ${esc(n)} <span class="num">(${b} balls)</span>`).join(', '); });
+
+/* ---------- who RR should back ---------- */
+const CALL_TXT = { 'Retain': 'Already RR. Keep if retention allows.', 'Back - priority 1': 'Fills a measured RR gap, and the rating is firm.',
+  'Back - priority 2': 'Fills a measured RR gap, but the rating is less firm.', 'Depth option': 'Reliable under pressure, in an area where RR are not short.',
+  'Watch': 'Less certain: no IPL record, or a less firm rating in an area RR need less.' };
+const nOut = D.board.filter(r => r.status.startsWith('Auction')).length;
+const rrNames = D.board.filter(r => r.call === 'Retain').map(r => r.player);
+$('#back-intro').textContent = `All 20 players come from the supplied data pack only. ${nOut} play for other teams and are auction targets; ${20 - nOut} (${rrNames.join(' and ')}) ${rrNames.length === 1 ? 'was' : 'were'} in RR's 2026 squad. Each gets one call from fixed rules: which RR gap they fill and how firm their rating is.`;
+$('#board').innerHTML = D.board_order.map(c => {
+  const rows = D.board.filter(r => r.call === c); if (!rows.length) return '';
+  return `<div class="card" style="margin-bottom:16px"><div><h3>${esc(c)}</h3><p class="note">${CALL_TXT[c]}</p></div><div class="tbl">` +
+    tbl(['Player', 'List', 'Status', '2026 team', 'RR need', 'Rating', 'Flags'], rows.map(r => [
+      `<b>${esc(r.player)}</b>`, `${r.role === 'bat' ? 'Bat' : 'Bowl'} #${r.rank}`, esc(r.status), esc(r.team_2026),
+      esc(r.need) + (r.fills_gap ? ' <span class="chip rr" style="margin-left:4px">RR gap</span>' : ''),
+      `<span class="chip ${r.tier === 'Core' ? 'core' : 'clutch'}" style="margin:0">${r.tier}</span>`, esc(r.flags.join(', ')) || '–'])) + '</div></div>';
+}).join('');
+
+/* ---------- algorithms ---------- */
+const GROUPS = [['match', 'Modelling the match'], ['pressure', 'Defining pressure'], ['rating', 'Rating players'], ['ranking', 'Ranking and checks']];
+const ALGOS = [
+  { id: 'dl', g: 'match', old: true, name: 'Duckworth–Lewis resource curve', origin: 'Duckworth & Lewis, 1998 (cricket rain rules)',
+    what: 'Models how much of a team\'s scoring potential is left for any balls-remaining and wickets-lost pair, as R(u, w) = Z0(w)·(1 − e^(−b(w)·u)).',
+    why: 'It turns "48 needed off 30 with 4 down" into one number the win model can use. Built for rain rules, rarely used for player rating.',
+    here: 'Fitted to this data for every wicket count, then used as an input to the win model and to value each ball.' },
+  { id: 'pava', g: 'match', old: true, name: 'Isotonic regression (PAVA)', origin: 'Ayer et al., 1955',
+    what: 'Pool-adjacent-violators: the closest curve to the data that never goes the wrong way.',
+    why: 'More wickets lost must mean fewer resources left. A plain running minimum flattened the curve; PAVA keeps the shape and enforces the rule.',
+    here: 'Applied across wicket counts so the resource table is monotone.' },
+  { id: 'logit', g: 'match', name: 'Logistic regression by IRLS (Newton–Raphson)', origin: 'Cox, 1958; IRLS from Nelder & Wedderburn, 1972',
+    what: 'Predicts the chance the batting side wins from the match state. Solved by iteratively reweighted least squares.',
+    why: 'Transparent, well calibrated and fast in pure Python. Every ball\'s pressure is built on it.',
+    here: () => `Cross-validated log-loss ${N.ll1} vs ${N.ll1b} (coin flip) in the 1st innings and ${N.ll2} vs ${N.ll2b} in the chase.` },
+  { id: 'cv', g: 'match', name: 'Match-grouped 5-fold cross-validation', origin: 'Stone, 1974',
+    what: 'Scores each candidate model on matches it never saw, keeping all balls of a match in the same fold.',
+    why: 'Balls within a match are linked; splitting them would leak the result and flatter the model.',
+    here: 'Picked the feature set for each innings.' },
+  { id: 'li', g: 'pressure', old: true, name: 'Leverage Index', origin: 'Tom Tango, baseball analytics (2000s)',
+    what: 'How much the next ball can swing win probability, relative to an average ball. LI = 1 is average; 1.5 means 50% more at stake.',
+    why: 'Defines pressure from the match itself instead of guesswork like "last five overs". Rarely applied to cricket.',
+    here: () => `LI ≥ 1.5 marks ${pct(N.pressure_share, 1)} of balls as pressure. 2.0 was also tested.` },
+  { id: 'gmm', g: 'pressure', name: 'Gaussian mixture by EM', origin: 'Dempster, Laird & Rubin, 1977',
+    what: 'Splits log-LI into overlapping groups and gives each ball a probability of belonging to each.',
+    why: 'Finds dead balls (games already decided) from the data rather than a hand-picked cut.',
+    here: () => `${pct(N.dead_share, 1)} of balls flagged dead (LI below ${N.dead_cut}) and removed from ratings.` },
+  { id: 'mh', g: 'pressure', old: true, name: 'Mantel–Haenszel odds ratios', origin: 'Mantel & Haenszel, 1959',
+    what: 'Tests whether a factor changes an outcome after stratifying by context, here by over and wickets.',
+    why: 'Checks whether things fans call "pressure" (dot-ball streaks, quick wickets) really change outcomes, without confounding by phase.',
+    here: () => `3+ dot streak: OR ${N.mh_dot} for a boundary next ball. 2+ wickets in 12 balls: OR ${N.mh_wk} for another wicket.` },
+  { id: 'wpa', g: 'rating', name: 'Win Probability Added and Run Value', origin: 'Baseball win-probability work, 1970s onward',
+    what: 'WPA = change in win chance caused by a ball. Run Value = runs scored minus the resources that ball used up.',
+    why: 'WPA measures impact when it matters; Run Value measures quality without the noise of the match result.',
+    here: 'Computed for every ball, from both the batter\'s and the bowler\'s side.' },
+  { id: 'ridge', g: 'rating', name: 'Ridge regression by backfitting', origin: 'Hoerl & Kennard, 1970; Breiman & Friedman, 1985',
+    what: 'Splits each ball\'s run value into context + batter + bowler, solving one block at a time with a shrinkage penalty.',
+    why: 'A batter who faced Bumrah should not look worse than one who faced part-timers. This is the fair-comparison step.',
+    here: () => `λ = ${N.lam}, converged in ${N.iters} iterations.` },
+  { id: 'eb', g: 'rating', old: true, name: 'Empirical Bayes / James–Stein shrinkage', origin: 'James & Stein, 1961; Efron & Morris, 1975',
+    what: 'Pulls each noisy estimate toward a sensible centre, more when the sample is small. Efron & Morris showed it on baseball batting averages.',
+    why: 'The core of the project. Pressure samples are small (often under 200 balls), so raw numbers mostly reward luck.',
+    here: 'Hierarchical: each player\'s pressure level is shrunk toward their own usual level, and the clutch gap toward the league.' },
+  { id: 'bb', g: 'rating', name: 'Beta-binomial empirical Bayes', origin: 'Skellam, 1948',
+    what: 'The same shrinkage idea for a rate: share of pressure innings with a positive contribution.',
+    why: 'Gives the consistency score without letting 3 good innings out of 3 beat 20 out of 30.',
+    here: 'Run-value-positive innings chosen because it showed more real between-player signal than the WPA version.' },
+  { id: 'ts', g: 'rating', name: 'True-score standardisation', origin: 'Classical test theory (Spearman, 1904; Lord & Novick, 1968)',
+    what: 'Scales each component by the spread of real differences between players, not raw spread.',
+    why: 'A component that is almost all noise then carries almost no weight, instead of being blown up by a z-score.',
+    here: 'Fixed an early bug where noise-only components moved the ranking.' },
+  { id: 'borda', g: 'ranking', old: true, name: 'Borda count', origin: 'Jean-Charles de Borda, 1770s',
+    what: 'Ranks players on each component separately, then adds up the places.',
+    why: 'A voting rule that does not depend on how the components are scaled. Used as a cross-check.',
+    here: 'Shown beside the composite for every player.' },
+  { id: 'smaa', g: 'ranking', old: true, name: 'SMAA (stochastic multicriteria acceptability)', origin: 'Lahdelma, Hokkanen & Salminen, 1998',
+    what: 'Re-ranks 4,000 times with random component weights and records how often each player makes the top 10.',
+    why: 'Shows whether a ranking depends on one arbitrary weighting choice.',
+    here: 'Reported as P(top 10) under random weights.' },
+  { id: 'boot', g: 'ranking', name: 'Poisson bootstrap over matches', origin: 'Efron, 1979',
+    what: 'Rebuilds the ratings 300 times, each with matches randomly re-weighted.',
+    why: 'Gives every rank an uncertainty band and the bars on the Players tab.',
+    here: () => `${[...D.bat, ...D.bowl].filter(p => p.p10 >= 0.7).map(p => p.name).join(', ')} stay in the top 10 in at least 70% of resamples.` },
+  { id: 'sb', g: 'ranking', old: true, name: 'Split-half reliability (Spearman–Brown)', origin: 'Spearman & Brown, 1910',
+    what: 'Correlates each metric between odd and even matches, then corrects to full length.',
+    why: 'Answers whether pressure performance is a stable skill or mostly noise.',
+    here: () => `Pressure run value r = ${N.rel_bat} (batters), ${N.rel_bowl} (bowlers); usual level ${N.base_bat} / ${N.base_bowl}. Pressure skill is real but weak.` },
+  { id: 'avg', g: 'ranking', name: 'Model averaging', origin: 'Ensemble practice, 1990s onward',
+    what: 'Final score = mean of three specifications: all data, IPL only, and recency-weighted (half-life 2 seasons).',
+    why: 'No single specification is clearly right, so averaging reduces the risk of picking the wrong one.',
+    here: 'Produces the published order.' },
+  { id: 'hold', g: 'ranking', name: 'Time-split holdout test', origin: 'Standard forecasting validation',
+    what: 'Rate players on 2022–24 only, then check against what they did under pressure in 2025–26.',
+    why: 'The hardest test: does the method pick players who go on to perform?',
+    here: 'Showed which part of the rating carries forward and gave the Core / Clutch-dependent tags. See Accuracy checks.' },
+];
+let agroup = 'match';
+function renderAlgos() {
+  $('#agroups').innerHTML = GROUPS.map(([k, l]) => `<button role="tab" data-g="${k}" aria-selected="${k === agroup}">${l}</button>`).join('');
+  $('#agroups').querySelectorAll('button').forEach(b => b.addEventListener('click', () => { agroup = b.dataset.g; renderAlgos(); }));
+  $('#alist').innerHTML = ALGOS.filter(a => a.g === agroup).map(a => `<details class="al" id="al-${a.id}">
+    <summary><span class="an">${esc(a.name)}</span><span class="ar">details</span><span class="ao">${esc(a.origin)}</span></summary>
+    <div class="ab"><p><b>What it does.</b> ${esc(a.what)}</p><p><b>Why we used it.</b> ${esc(a.why)}</p>
+    <p><b>Result here.</b> ${esc(typeof a.here === 'function' ? a.here() : a.here)}</p></div></details>`).join('');
+}
+function openAlgo(id) {
+  const a = ALGOS.find(x => x.id === id); agroup = a.g; renderAlgos(); show('algorithms');
+  const el = $('#al-' + id); el.open = true; el.classList.add('flash'); el.scrollIntoView({ block: 'center' });
+  setTimeout(() => el.classList.remove('flash'), 1400);
+}
+renderAlgos();
+
+/* ---------- workflow ---------- */
+const STAGES = [
+  { t: 'Raw data', s: '6 CSV files', what: 'Ball-by-ball for IPL 2022–26 and T20Is 2022–26, plus matches, playing XIs, squads and teams.',
+    why: 'Everything downstream is built from these files only.', stats: () => [[fmt(N.deliveries), 'deliveries'], [fmt(N.innings), 'innings']],
+    algos: [], out: 'SupeRR_Selector_Season_2_Data_Pack_Extracted/' },
+  { t: 'Preprocessing', s: 'clean and rebuild match state', what: 'Remove super overs, mark illegal balls, rebuild score, wickets, balls left and target before every ball, and normalise each season to a common scoring level.',
+    why: 'Pressure depends on the exact state before each ball, so the state has to be rebuilt correctly. Players are keyed by ID because three names belong to two different people.',
+    stats: () => [[N.superover, 'super-over balls removed'], [N.par, 'global par score']],
+    extra: 'Uses the updated ball file (Nov 2026), which stores real extras runs. Innings totals now match official results.',
+    algos: [], out: 'step1_preprocess.py → balls_clean.csv' },
+  { t: 'Win-probability engine', s: 'resource curve + logistic model', what: 'Fit a Duckworth–Lewis-style resource curve, make it monotone, then predict the batting side\'s win chance from the match state.',
+    why: 'Pressure is defined as how much a ball can change the result, so a well-calibrated win model comes first.',
+    stats: () => [[N.ll2, 'chase log-loss (coin flip ' + N.ll2b + ')'], [N.ll1, '1st-innings log-loss']],
+    algos: ['dl', 'pava', 'logit', 'cv'], out: 'step2_winprob.py → balls_model.csv' },
+  { t: 'Defining pressure', s: 'Leverage Index ≥ 1.5', what: 'Score every ball by its Leverage Index. Remove dead balls in already-decided games. Pressure = LI ≥ 1.5.',
+    why: 'An objective, match-based definition. It was checked against outcomes: dismissals really are more frequent on pressure balls.',
+    stats: () => [[pct(N.pressure_share, 1), 'of balls are pressure'], [N.out_hi + '%', 'dismissal rate (vs ' + N.out_med + '% medium)'], [pct(N.dead_share, 1), 'dead balls removed']],
+    algos: ['li', 'gmm', 'mh'], out: 'step3_pressure.py → balls_pressure.csv' },
+  { t: 'Value every ball', s: 'WPA + run value, adjusted', what: 'Give each ball a win-probability-added and a run value, then remove the effect of the opponent and the phase.',
+    why: 'Fair comparison: a death-overs ball against a top bowler is harder than a middle-overs ball against a part-timer.',
+    stats: () => [['λ ' + N.lam, 'ridge penalty'], [N.iters, 'iterations to converge']], algos: ['wpa', 'ridge'], out: 'step4_ratings.py' },
+  { t: 'Rate players', s: 'empirical-Bayes shrinkage', what: 'Four components per player: pressure WPA, pressure run value, clutch gap vs own usual level, and consistency. Each is shrunk and put on a true-score scale.',
+    why: 'Small samples are the main danger. Shrinkage stops a few lucky overs topping the list.',
+    stats: () => [[N.pool_bat, 'batters eligible'], [N.pool_bowl, 'bowlers eligible'], ['≥ 60', 'pressure balls to qualify']],
+    extra: 'Eligible: at least 60 pressure balls, 6 pressure innings, and active in 2025 or 2026.',
+    algos: ['eb', 'bb', 'ts'], out: 'step4_ratings.py → rank_*.csv' },
+  { t: 'Robust ranking', s: 'average + stress-test', what: 'Average three specifications, then cross-check with Borda, random weights (SMAA) and a bootstrap over matches.',
+    why: 'A ranking should not depend on one modelling choice. These tools show how firm each place is.',
+    branch: ['All data', 'IPL only', 'Recent-weighted'],
+    stats: () => [['3', 'specifications averaged'], ['4,000', 'random-weight draws'], ['300', 'bootstrap resamples']],
+    algos: ['avg', 'borda', 'smaa', 'boot'], out: 'step5_final.py → FINAL_*.csv' },
+  { t: 'Accuracy audit', s: 'integrity, holdout, robustness', what: 'Check the raw data, recount every listed number, drop components one at a time, move the thresholds, and test 2022–24 ratings against 2025–26.',
+    why: 'To find out which picks are firm and which lean on less repeatable signals.',
+    stats: () => [[D.audit.won_by_wickets_reproduced, '"won by N wickets" reproduced'], [D.recount === 0 ? '0' : D.recount, 'recount mismatches'], [D.oos.find(o => o.ours).bat[0].toFixed(2), 'batter holdout ρ']],
+    algos: ['sb', 'hold'], out: 'step7_audit.py → audit.json', go: 'checks' },
+  { t: 'RR fit', s: 'match players to RR\'s gaps', what: 'Compare RR\'s own pressure record in IPL 2025–26 with the rest of the league, by phase and by pace or spin, and match each shortlisted player to the gaps.',
+    why: 'The best player for RR is the one who fixes what RR lack, not just the highest rating.',
+    stats: () => { const d = D.rr_bat['Death (16-20)']; return [[d.RR.SR + ' vs ' + d['Rest of IPL'].SR, 'death SR, RR vs rest'], [D.rated + ' / ' + D.squad, 'RR squad players rated']]; },
+    algos: [], out: 'step6_rr_fit.py → rr_fit.json', go: 'rr' },
+];
+let stage = 5;
+function renderFlow() {
+  $('#chain').innerHTML = STAGES.map((s, i) => (i ? '<div class="link" aria-hidden="true"></div>' : '') +
+    `<button class="node" data-i="${i}" aria-pressed="${i === stage}"><span class="ix">${i + 1}</span><span class="t">${esc(s.t)}</span><span class="s">${esc(s.s)}</span></button>`).join('');
+  $('#chain').querySelectorAll('.node').forEach(b => b.addEventListener('click', () => { stage = +b.dataset.i; renderFlow(); }));
+  const s = STAGES[stage];
+  $('#panel').innerHTML = `<div class="eyebrow">Stage ${stage + 1} of ${STAGES.length}</div><h3 style="font-size:22px">${esc(s.t)}</h3>
+    <div class="stats">${s.stats().map(([v, l]) => `<div class="stat"><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('')}</div>
+    ${s.branch ? `<div class="mini">${s.branch.map(b => `<span>${b}</span>`).join('<i>+</i>')}<i>→</i><span>mean score</span><i>→</i><span>top 10</span></div>` : ''}
+    <dl><dt>What it does</dt><dd>${esc(s.what)}</dd><dt>Why</dt><dd>${esc(s.why)}</dd>
+    ${s.extra ? `<dt>Note</dt><dd>${esc(s.extra)}</dd>` : ''}
+    <dt>Script</dt><dd class="num" style="font-size:13px">${esc(s.out)}</dd>
+    ${s.algos.length ? `<dt>Algorithms</dt><dd><div class="algos">${s.algos.map(id => `<button data-a="${id}">${esc(ALGOS.find(a => a.id === id).name)}</button>`).join('')}</div></dd>` : ''}
+    ${s.go ? `<dt>See</dt><dd><div class="algos"><button data-go="${s.go}">${s.go === 'rr' ? 'RR fit tab' : 'Accuracy checks tab'}</button></div></dd>` : ''}</dl>`;
+  $('#panel').querySelectorAll('[data-a]').forEach(b => b.addEventListener('click', () => openAlgo(b.dataset.a)));
+  $('#panel').querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => { show(b.dataset.go); window.scrollTo(0, 0); }));
+}
+renderFlow();
+
+/* ---------- checks ---------- */
+const tip = $('#tip');
+function bindTips(root) {
+  root.querySelectorAll('[data-tip]').forEach(el => {
+    el.addEventListener('mousemove', e => { tip.hidden = false; tip.textContent = el.dataset.tip; tip.style.left = Math.min(e.clientX + 12, innerWidth - 270) + 'px'; tip.style.top = (e.clientY + 14) + 'px'; });
+    el.addEventListener('mouseleave', () => { tip.hidden = true; });
+  });
+}
+function dotChart(role, title) {
+  const rows = D.oos, W = 460, rowH = 34, top = 30, L = 170, R = 16, H = top + rows.length * rowH + 26;
+  const x = v => L + (v + 0.6) / 1.2 * (W - L - R);
+  let g = '';
+  [-0.4, -0.2, 0, 0.2, 0.4].forEach(t => {
+    g += `<line x1="${x(t)}" x2="${x(t)}" y1="${top - 6}" y2="${H - 22}" stroke="var(--line)" stroke-width="${t === 0 ? 1.5 : 1}"/>`;
+    g += `<text x="${x(t)}" y="${H - 6}" font-size="11" text-anchor="middle" fill="var(--ink2)">${t > 0 ? '+' : ''}${t.toFixed(1)}</text>`;
+  });
+  rows.forEach((r, i) => {
+    const [v, lo, hi] = r[role], y = top + i * rowH + rowH / 2, c = r.ours ? 'var(--accent)' : 'var(--ink2)';
+    g += `<text x="0" y="${y + 4}" font-size="12.5" fill="var(--ink)" font-weight="${r.ours ? 600 : 400}">${esc(r.label)}</text>`;
+    g += `<line x1="${x(lo)}" x2="${x(hi)}" y1="${y}" y2="${y}" stroke="${c}" stroke-width="2" stroke-linecap="round"/>`;
+    g += `<circle cx="${x(v)}" cy="${y}" r="5" fill="${c}" stroke="var(--surface)" stroke-width="2"/>`;
+    g += `<rect x="0" y="${y - rowH / 2}" width="${W}" height="${rowH}" fill="transparent" data-tip="${esc(r.label)}: ρ ${v >= 0 ? '+' : ''}${v.toFixed(2)} (90% CI ${lo.toFixed(2)} to ${hi.toFixed(2)})"/>`;
+  });
+  return `<div style="font-weight:600;font-size:14px;margin-bottom:4px">${title}</div><div class="tbl"><svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:380px" role="img" aria-label="${title} holdout correlations">${g}</svg></div>`;
+}
+$('#oos-note').textContent = `Ratings rebuilt from 2022–24 only, then compared (Spearman ρ, with 90% bootstrap interval) with pressure-ball run value in 2025–26 for the ${D.oos_n[0]} batters and ${D.oos_n[1]} bowlers with at least 30 pressure balls in both periods. Higher is better; 0 means no predictive power.`;
+$('#oos-bat').innerHTML = dotChart('bat', 'Batters');
+$('#oos-bowl').innerHTML = dotChart('bowl', 'Bowlers');
+bindTips($('#s-checks'));
+const q = D.oos_q;
+$('#oos-call').innerHTML = `<b>What this shows.</b> ${esc(D.oos_text)}
+  Intervals are wide, so the order was not re-tuned to this one test (that would be fitting to the answer). Instead each player is tagged <span class="chip core" style="margin:0">Core</span> or
+  <span class="chip clutch" style="margin:0">Clutch-dependent</span>. The top quarter by 2022–24 rating did produce more under pressure in 2025–26:
+  <span class="num">${q[0][0].toFixed(3)}</span> vs <span class="num">${q[0][1].toFixed(3)}</span> runs per ball (batters), <span class="num">${q[1][0].toFixed(3)}</span> vs <span class="num">${q[1][1].toFixed(3)}</span> (bowlers).`;
+const A = D.audit;
+function tbl(head, rows, rcols = []) { return `<table><thead><tr>${head.map((h, i) => `<th class="${rcols.includes(i) ? 'r' : ''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td class="${rcols.includes(i) ? 'r num' : ''}">${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`; }
+$('#integrity').innerHTML = tbl(['Check', 'Result'], [
+  ['Duplicate deliveries', A.duplicate_delivery_keys], ['Innings with gaps in ball numbers', A.innings_with_ball_number_gaps],
+  ['Innings with more than 10 wickets', A.innings_over_10_wickets],
+  ['Bowler listed in that match\'s XI', A.bowler_in_XI_pct + '%'], ['Striker listed in that match\'s XI', A.striker_in_XI_pct + '%'],
+  ['"Won by N wickets" reproduced', A.won_by_wickets_reproduced],
+  ['"Won by N runs" within 5 runs', A.won_by_runs_within_5_pct + '% of ' + A.won_by_runs_n],
+  ['Listed players\' numbers recounted', D.recount === 0 ? '<span class="ok">all 20 match</span>' : D.recount + ' mismatches'],
+], [1]);
+$('#integ-note').textContent = `Uses the updated ball file, which stores real extras runs: innings totals reproduce official margins (mean error ${A.won_by_runs_MAE} runs).`;
+const ro = D.rob, lo = Object.keys(ro.bat.leave_one_component_out_overlap_of_10);
+$('#robust').innerHTML = tbl(['Change', 'Batters kept', 'Bowlers kept'], [
+  ...lo.map(k => [k.replace('without', 'Drop'), ro.bat.leave_one_component_out_overlap_of_10[k] + '/10', ro.bowl.leave_one_component_out_overlap_of_10[k] + '/10']),
+  ['Eligibility ≥ 100 balls', ro.bat.threshold_overlap_of_10.min100 + '/10', ro.bowl.threshold_overlap_of_10.min100 + '/10'],
+  ['Eligibility ≥ 40 balls', ro.bat.threshold_overlap_of_10.min40 + '/10', ro.bowl.threshold_overlap_of_10.min40 + '/10'],
+  ['Stricter pressure, LI ≥ 2.0', D.li2.bat[0] + '/10', D.li2.bowl[0] + '/10'],
+], [1, 2]);
+$('#robust-note').textContent = `Compared with the main top 10. In the top 10 every time a component is dropped: ${ro.bat.in_top10_under_every_leave_one_out.join(', ')} (batting); ${ro.bowl.in_top10_under_every_leave_one_out.join(', ')} (bowling). The ≥ 40-ball bar lets in many very small samples, which is why batting moves most there.`;
+
+/* ---------- public-data model ---------- */
+if (D.pm) {
+  const PM = D.pm.roles, fmtr = h => `<span class="num">${h.rho >= 0 ? '+' : ''}${h.rho.toFixed(2)}</span> <span class="note">(${h.ci90[0].toFixed(2)} to ${h.ci90[1].toFixed(2)})</span>`;
+  $('#pm-how').innerHTML = [
+    ['Data', 'Cricsheet IPL 2008–2026: 1,243 matches, 295,557 deliveries. Auction history 2013–2025: 1,279 sold players.'],
+    ['Pressure', 'Overs 16–20, or a chase needing 9+ an over (decided chases excluded). Not the Leverage Index.'],
+    ['Target', 'Next-season run value per pressure ball: runs above league average, wickets priced at league runs per wicket.'],
+    ['Features', 'Past overall and pressure value, last-season values, balls, strike rate or economy, boundary or dot rate, wicket rate, death share, seasons, auction price, its rank in that auction, years since.'],
+    ['Models', 'Ridge regression and gradient-boosted trees, pure Python, picked by season-by-season validation.'],
+  ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+  $('#pm-val').innerHTML = tbl(['', 'Naive', 'Ridge', 'Boosting', 'Chosen'], ['bat', 'bowl'].map(r => {
+    const v = PM[r].rolling_validation_mean_spearman_2016_2024;
+    return [r === 'bat' ? 'Batters' : 'Bowlers', v['naive (past pressure value)'].toFixed(3), v.ridge.toFixed(3), v['gradient boosting'].toFixed(3), esc(PM[r].chosen)];
+  }), [1, 2, 3]);
+  const h2h = [];
+  ['bat', 'bowl'].forEach(r => Object.entries(PM[r].head_to_head_2025_26).forEach(([k, h]) =>
+    h2h.push([r === 'bat' ? 'Batters' : 'Bowlers', esc(k.split(': ')[1]), h.players, fmtr(h.public_model), fmtr(h.superrr_method)])));
+  $('#pm-h2h').innerHTML = tbl(['', 'Judged by', 'Players', 'Public model ρ', 'Our method ρ'], h2h, [2]);
+  ['bat', 'bowl'].forEach(r => {
+    const fc = PM[r].forecast_2027;
+    $('#pm-sum-' + r).textContent = `${fc.overlap_top10} of 10 names shared with our list. Rank correlation over the ${fc.common_players} players both rate: ${fc.rank_corr_common_players >= 0 ? '+' : ''}${fc.rank_corr_common_players.toFixed(2)}.`;
+    $('#pm-' + r).innerHTML = tbl(['#', 'Model top 10', 'Our rank', 'Our top 10', 'Model rank'], fc.model_top10.map((m, i) => {
+      const o = fc.our_top10_in_model[i];
+      return [i + 1, esc(m.player), m.our_final_rank || '–', esc(o.player), o.model_rank || 'not rated'];
+    }), [2, 4]);
+  });
+  $('#pm-call').innerHTML = D.pm_call || '';
+  $('#pm-uses').textContent = D.pm_uses || '';
+} else { document.getElementById('t-pm').hidden = true; }
+
+/* ---------- RR fit ---------- */
+function rrTable(obj, cols, gapRow) {
+  const rows = [];
+  Object.entries(obj).forEach(([ph, v]) => {
+    ['RR', 'Rest of IPL'].forEach((who, j) => rows.push({ hl: ph === gapRow, cells: [j ? '' : ph.replace(/ \(.*\)/, ''), who, ...cols.map(([k]) => v[who][k]), v[who].balls] }));
+  });
+  return `<table><thead><tr><th>Phase</th><th></th>${cols.map(([, l]) => `<th class="r">${l}</th>`).join('')}<th class="r">Balls</th></tr></thead><tbody>${rows.map(r => `<tr class="${r.hl ? 'hl' : ''}">${r.cells.map((c, i) => `<td class="${i > 1 ? 'r num' : ''}">${i < 2 ? c : i === r.cells.length - 1 ? c : Number(c).toFixed(i === r.cells.length - 2 ? 2 : 1)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+}
+$('#rr-bat').innerHTML = rrTable(D.rr_bat, [['SR', 'SR'], ['boundary_pct', 'Bound %'], ['out_pct', 'Out %'], ['WPA_per100', 'WPA/100']], 'Death (16-20)');
+$('#rr-bowl').innerHTML = rrTable(D.rr_bowl, [['econ', 'Econ'], ['balls_per_wkt', 'Balls/wkt'], ['dot_pct', 'Dot %'], ['WPA_per100', 'WPA/100']], 'Death (16-20)') +
+  `<p class="note" style="margin-top:10px">By type: RR spin takes a wicket every ${D.rr_type.Spin.RR.balls_per_wkt} pressure balls (rest ${D.rr_type.Spin['Rest of IPL'].balls_per_wkt}); pace every ${D.rr_type.Pace.RR.balls_per_wkt} (rest ${D.rr_type.Pace['Rest of IPL'].balls_per_wkt}).</p>`;
+const res = D.rr_res, cw = Object.values(res).reduce((a, r) => a + (r.close_won || 0), 0), cl = Object.values(res).reduce((a, r) => a + (r.close_lost || 0), 0);
+const tierOf = n => [...D.bat, ...D.bowl].find(p => p.name === n).tier;
+const tagged = n => `${esc(n)} <span class="chip ${tierOf(n) === 'Core' ? 'core' : 'clutch'}" style="margin-left:2px">${tierOf(n)}</span>`;
+const byCall = (f) => D.board.filter(f).map(r => r.player);
+const list = a => a.map(tagged).join(', ');
+$('#pri').innerHTML = [
+  `<b>A death finisher for pressure chases.</b> ${list(byCall(r => r.need === 'Death finisher' && r.call.startsWith('Back')))}. RR's biggest gap: death-overs strike rate and boundary rate under pressure.`,
+  `<b>A pace bowler for RR's pace gap.</b> ${list(byCall(r => r.need === 'Pace' && r.call.startsWith('Back')))}. RR's pace takes wickets less often than the league's under pressure, and RR's death-over dots are rarer.`,
+  `<b>Keep what already works.</b> ${list(byCall(r => r.call === 'Retain'))}: RR 2026 players in the top 10. Retain if possible.`,
+  `<b>Spin adds depth, not a fix.</b> RR's pressure spin is already above league level, so ${list(byCall(r => r.need === 'Spin depth' && r.call === 'Depth option'))} add variety.`,
+].map(s => `<li>${s}</li>`).join('');
+$('#rr-note').textContent = `RR won ${cw} and lost ${cl} close matches across IPL 2025 and 2026. ${D.rated} of ${D.squad} RR 2026 squad players have enough pressure balls to be rated. The death-batting gap rests on ${D.rr_bat['Death (16-20)'].RR.balls} balls. Retentions for 2027 were not yet official on 10 Nov 2026, so check availability against the official lists before bidding.`;
+</script>

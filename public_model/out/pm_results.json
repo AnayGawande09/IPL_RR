@@ -1,0 +1,529 @@
+{
+ "features": [
+  "log_balls",
+  "val_all",
+  "val_P",
+  "log_Pballs",
+  "last_val_P",
+  "last_val_all",
+  "seasons",
+  "rate",
+  "bnd_or_dot",
+  "out_or_wkt",
+  "played_last",
+  "death_share",
+  "log_price",
+  "price_pct",
+  "yrs_since_auction",
+  "has_auction"
+ ],
+ "min_target_pressure_balls": 30,
+ "roles": {
+  "bat": {
+   "rolling_validation_mean_spearman_2016_2024": {
+    "naive (past pressure value)": 0.093,
+    "ridge": 0.17,
+    "gradient boosting": 0.09
+   },
+   "per_season": {
+    "naive (past pressure value)": [
+     0.153,
+     0.068,
+     0.106,
+     0.052,
+     -0.167,
+     0.349,
+     0.298,
+     0.069,
+     -0.094
+    ],
+    "ridge": [
+     0.159,
+     0.209,
+     0.403,
+     0.057,
+     -0.208,
+     0.381,
+     0.293,
+     0.208,
+     0.027
+    ],
+    "gradient boosting": [
+     0.133,
+     0.09,
+     0.303,
+     -0.082,
+     -0.234,
+     0.252,
+     0.177,
+     0.224,
+     -0.053
+    ]
+   },
+   "chosen": "ridge",
+   "train_rows_all": 1029,
+   "head_to_head_2025_26": {
+    "truth A: model pressure rule (Cricsheet)": {
+     "players": 42,
+     "public_model": {
+      "rho": 0.393,
+      "ci90": [
+       0.106,
+       0.638
+      ]
+     },
+     "superrr_method": {
+      "rho": 0.184,
+      "ci90": [
+       -0.098,
+       0.439
+      ]
+     },
+     "rho_between_methods": 0.306
+    },
+    "truth B: SuperRR Leverage-Index pressure (data pack)": {
+     "players": 26,
+     "public_model": {
+      "rho": 0.292,
+      "ci90": [
+       -0.049,
+       0.581
+      ]
+     },
+     "superrr_method": {
+      "rho": 0.175,
+      "ci90": [
+       -0.179,
+       0.5
+      ]
+     },
+     "rho_between_methods": 0.525
+    }
+   },
+   "what_the_model_uses": {
+    "kind": "ridge coefficient per 1 SD of the feature",
+    "values": {
+     "log_balls": 0.0689,
+     "val_all": 0.0127,
+     "val_P": 0.1223,
+     "log_Pballs": -0.0798,
+     "last_val_P": -0.0713,
+     "last_val_all": 0.0018,
+     "seasons": 0.0385,
+     "rate": 0.0733,
+     "bnd_or_dot": -0.0605,
+     "out_or_wkt": 0.0175,
+     "played_last": -0.036,
+     "death_share": -0.0837,
+     "log_price": 0.0874,
+     "price_pct": -0.0624,
+     "yrs_since_auction": 0.0338,
+     "has_auction": -0.078
+    }
+   },
+   "forecast_2027": {
+    "model_pool": 101,
+    "model_top10": [
+     {
+      "rank": 1,
+      "cricsheet_name": "V Kohli",
+      "player": "Virat Kohli",
+      "player_id": "47",
+      "pred_value_per_ball": 0.5728,
+      "our_final_rank": 15
+     },
+     {
+      "rank": 2,
+      "cricsheet_name": "PD Salt",
+      "player": "Phil Salt",
+      "player_id": "5553",
+      "pred_value_per_ball": 0.5232,
+      "our_final_rank": 31
+     },
+     {
+      "rank": 3,
+      "cricsheet_name": "RG Sharma",
+      "player": "Rohit Sharma",
+      "player_id": "126",
+      "pred_value_per_ball": 0.4988,
+      "our_final_rank": 84
+     },
+     {
+      "rank": 4,
+      "cricsheet_name": "SV Samson",
+      "player": "Sanju Samson",
+      "player_id": "2258",
+      "pred_value_per_ball": 0.4921,
+      "our_final_rank": 42
+     },
+     {
+      "rank": 5,
+      "cricsheet_name": "SS Iyer",
+      "player": "Shreyas Iyer",
+      "player_id": "3647",
+      "pred_value_per_ball": 0.4596,
+      "our_final_rank": 9
+     },
+     {
+      "rank": 6,
+      "cricsheet_name": "SA Yadav",
+      "player": "Suryakumar Yadav",
+      "player_id": "1699",
+      "pred_value_per_ball": 0.4589,
+      "our_final_rank": 3
+     },
+     {
+      "rank": 7,
+      "cricsheet_name": "Abhishek Sharma",
+      "player": "Abhishek Sharma",
+      "player_id": "6281",
+      "pred_value_per_ball": 0.4587,
+      "our_final_rank": 7
+     },
+     {
+      "rank": 8,
+      "cricsheet_name": "AM Rahane",
+      "player": "Ajinkya Rahane",
+      "player_id": "167",
+      "pred_value_per_ball": 0.4553,
+      "our_final_rank": 37
+     },
+     {
+      "rank": 9,
+      "cricsheet_name": "KL Rahul",
+      "player": "Lokesh Rahul",
+      "player_id": "953",
+      "pred_value_per_ball": 0.4485,
+      "our_final_rank": 26
+     },
+     {
+      "rank": 10,
+      "cricsheet_name": "Shubman Gill",
+      "player": "Shubman Gill",
+      "player_id": "6288",
+      "pred_value_per_ball": 0.4397,
+      "our_final_rank": 25
+     }
+    ],
+    "our_top10_in_model": [
+     {
+      "player": "Heinrich Klaasen",
+      "our_rank": 1,
+      "model_rank": 22,
+      "cricsheet_name": "H Klaasen"
+     },
+     {
+      "player": "Tim David",
+      "our_rank": 2,
+      "model_rank": 69,
+      "cricsheet_name": "TH David"
+     },
+     {
+      "player": "Suryakumar Yadav",
+      "our_rank": 3,
+      "model_rank": 6,
+      "cricsheet_name": "SA Yadav"
+     },
+     {
+      "player": "Rinku Singh",
+      "our_rank": 4,
+      "model_rank": 56,
+      "cricsheet_name": "RK Singh"
+     },
+     {
+      "player": "Josh Inglis",
+      "our_rank": 5,
+      "model_rank": 28,
+      "cricsheet_name": "JP Inglis"
+     },
+     {
+      "player": "Yashasvi Jaiswal",
+      "our_rank": 6,
+      "model_rank": 17,
+      "cricsheet_name": "YBK Jaiswal"
+     },
+     {
+      "player": "Abhishek Sharma",
+      "our_rank": 7,
+      "model_rank": 7,
+      "cricsheet_name": "Abhishek Sharma"
+     },
+     {
+      "player": "Rajat Patidar",
+      "our_rank": 8,
+      "model_rank": 34,
+      "cricsheet_name": "RM Patidar"
+     },
+     {
+      "player": "Shreyas Iyer",
+      "our_rank": 9,
+      "model_rank": 5,
+      "cricsheet_name": "SS Iyer"
+     },
+     {
+      "player": "Prabhsimran Singh",
+      "our_rank": 10,
+      "model_rank": 32,
+      "cricsheet_name": "P Simran Singh"
+     }
+    ],
+    "overlap_top10": 3,
+    "rank_corr_common_players": 0.267,
+    "common_players": 59
+   }
+  },
+  "bowl": {
+   "rolling_validation_mean_spearman_2016_2024": {
+    "naive (past pressure value)": -0.0,
+    "ridge": 0.019,
+    "gradient boosting": 0.025
+   },
+   "per_season": {
+    "naive (past pressure value)": [
+     -0.056,
+     -0.063,
+     0.153,
+     -0.013,
+     0.205,
+     0.031,
+     -0.103,
+     0.024,
+     -0.18
+    ],
+    "ridge": [
+     0.249,
+     -0.143,
+     -0.017,
+     -0.049,
+     0.181,
+     -0.012,
+     0.059,
+     -0.2,
+     0.098
+    ],
+    "gradient boosting": [
+     0.104,
+     0.022,
+     0.089,
+     -0.02,
+     -0.19,
+     0.216,
+     0.072,
+     -0.09,
+     0.023
+    ]
+   },
+   "chosen": "gradient boosting",
+   "train_rows_all": 937,
+   "head_to_head_2025_26": {
+    "truth A: model pressure rule (Cricsheet)": {
+     "players": 43,
+     "public_model": {
+      "rho": -0.162,
+      "ci90": [
+       -0.413,
+       0.094
+      ]
+     },
+     "superrr_method": {
+      "rho": 0.116,
+      "ci90": [
+       -0.155,
+       0.392
+      ]
+     },
+     "rho_between_methods": -0.307
+    },
+    "truth B: SuperRR Leverage-Index pressure (data pack)": {
+     "players": 32,
+     "public_model": {
+      "rho": 0.013,
+      "ci90": [
+       -0.279,
+       0.306
+      ]
+     },
+     "superrr_method": {
+      "rho": 0.263,
+      "ci90": [
+       0.009,
+       0.492
+      ]
+     },
+     "rho_between_methods": -0.251
+    }
+   },
+   "what_the_model_uses": {
+    "kind": "share of tree splits",
+    "values": {
+     "log_balls": 0.097,
+     "val_all": 0.072,
+     "val_P": 0.044,
+     "log_Pballs": 0.079,
+     "last_val_P": 0.085,
+     "last_val_all": 0.112,
+     "seasons": 0.065,
+     "rate": 0.08,
+     "bnd_or_dot": 0.084,
+     "out_or_wkt": 0.052,
+     "played_last": 0.019,
+     "death_share": 0.077,
+     "log_price": 0.046,
+     "price_pct": 0.052,
+     "yrs_since_auction": 0.035,
+     "has_auction": 0.0
+    }
+   },
+   "forecast_2027": {
+    "model_pool": 93,
+    "model_top10": [
+     {
+      "rank": 1,
+      "cricsheet_name": "MA Starc",
+      "player": "Mitchell Starc",
+      "player_id": "829",
+      "pred_value_per_ball": 0.8081,
+      "our_final_rank": 68
+     },
+     {
+      "rank": 2,
+      "cricsheet_name": "JJ Bumrah",
+      "player": "Jasprit Bumrah",
+      "player_id": "2933",
+      "pred_value_per_ball": 0.6624,
+      "our_final_rank": 28
+     },
+     {
+      "rank": 3,
+      "cricsheet_name": "MP Stoinis",
+      "player": "Marcus Stoinis",
+      "player_id": "2639",
+      "pred_value_per_ball": 0.59,
+      "our_final_rank": 103
+     },
+     {
+      "rank": 4,
+      "cricsheet_name": "AF Milne",
+      "player": "Adam Milne",
+      "player_id": "1487",
+      "pred_value_per_ball": 0.575,
+      "our_final_rank": null
+     },
+     {
+      "rank": 5,
+      "cricsheet_name": "SP Narine",
+      "player": "Sunil Narine",
+      "player_id": "781",
+      "pred_value_per_ball": 0.4009,
+      "our_final_rank": 1
+     },
+     {
+      "rank": 6,
+      "cricsheet_name": "S Dube",
+      "player": "Shivam Dube",
+      "player_id": "4755",
+      "pred_value_per_ball": 0.3406,
+      "our_final_rank": null
+     },
+     {
+      "rank": 7,
+      "cricsheet_name": "B Kumar",
+      "player": "Bhuvneshwar Kumar",
+      "player_id": "360",
+      "pred_value_per_ball": 0.3341,
+      "our_final_rank": 7
+     },
+     {
+      "rank": 8,
+      "cricsheet_name": "Navdeep Saini",
+      "player": "Navdeep Saini",
+      "player_id": "4288",
+      "pred_value_per_ball": 0.328,
+      "our_final_rank": null
+     },
+     {
+      "rank": 9,
+      "cricsheet_name": "SN Thakur",
+      "player": "Shardul Thakur",
+      "player_id": "2847",
+      "pred_value_per_ball": 0.3165,
+      "our_final_rank": 92
+     },
+     {
+      "rank": 10,
+      "cricsheet_name": "M Pathirana",
+      "player": "Matheesha Pathirana",
+      "player_id": "8661",
+      "pred_value_per_ball": 0.3129,
+      "our_final_rank": 39
+     }
+    ],
+    "our_top10_in_model": [
+     {
+      "player": "Sunil Narine",
+      "our_rank": 1,
+      "model_rank": 5,
+      "cricsheet_name": "SP Narine"
+     },
+     {
+      "player": "Rashid Khan",
+      "our_rank": 2,
+      "model_rank": 27,
+      "cricsheet_name": "Rashid Khan"
+     },
+     {
+      "player": "Kuldeep Yadav",
+      "our_rank": 3,
+      "model_rank": 17,
+      "cricsheet_name": "Kuldeep Yadav"
+     },
+     {
+      "player": "Sufiyan Muqeem",
+      "our_rank": 4,
+      "model_rank": null,
+      "cricsheet_name": null
+     },
+     {
+      "player": "Varun Chakravarthy",
+      "our_rank": 5,
+      "model_rank": 58,
+      "cricsheet_name": "CV Varun"
+     },
+     {
+      "player": "Mohsin Khan",
+      "our_rank": 6,
+      "model_rank": 43,
+      "cricsheet_name": "Mohsin Khan"
+     },
+     {
+      "player": "Bhuvneshwar Kumar",
+      "our_rank": 7,
+      "model_rank": 7,
+      "cricsheet_name": "B Kumar"
+     },
+     {
+      "player": "Mohammad Nawaz",
+      "our_rank": 8,
+      "model_rank": null,
+      "cricsheet_name": null
+     },
+     {
+      "player": "Krunal Pandya",
+      "our_rank": 9,
+      "model_rank": 87,
+      "cricsheet_name": "KH Pandya"
+     },
+     {
+      "player": "Mitchell Santner",
+      "our_rank": 10,
+      "model_rank": 78,
+      "cricsheet_name": "MJ Santner"
+     }
+    ],
+    "overlap_top10": 2,
+    "rank_corr_common_players": 0.096,
+    "common_players": 59
+   }
+  }
+ }
+}

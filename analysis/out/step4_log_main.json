@@ -1,0 +1,139 @@
+{
+ "mode": "main",
+ "live_balls": 172137,
+ "backfit_iterations": 58,
+ "backfit_final_delta": 7.978446284195861e-08,
+ "ridge_lambda": 150.0,
+ "wpa_per_ball_var": {
+  "bat": 39.4173501218398,
+  "bowl": 37.99472749925434
+ },
+ "bat_eligible": 98,
+ "bat_excluded_inactive": 5,
+ "bat_consistency_test": {
+  "WPA_positive": {
+   "prior_strength": 225.84,
+   "true_sd": 0.0329
+  },
+  "RV_positive": {
+   "prior_strength": 113.62,
+   "true_sd": 0.046
+  }
+ },
+ "bat_consistency_choice": "RV_positive",
+ "bat_hyper": {
+  "C1": {
+   "mu": -0.02340516959397,
+   "tau2": 0.020002189090909284,
+   "sigma2": 39.4173501218398
+  },
+  "baseline": {
+   "mu": 0.22304548909430846,
+   "tau2": 0.03775872929114761,
+   "sigma2": 6.206556906431966
+  },
+  "clutch": {
+   "mu": 0.041045602497864125,
+   "tau2": 0.024835308471384085,
+   "sigma2": 6.067515976927073
+  },
+  "C4": {
+   "alpha": 66.6281555413376,
+   "beta": 46.99074080101475,
+   "mu": 0.5864179083431338,
+   "tau2": 0.0021159856957022605
+  },
+  "true_sd": [
+   0.1414290956306703,
+   0.2501880048334286,
+   0.15759222211576332,
+   0.04599984451824007
+  ]
+ },
+ "bat_reliability": {
+  "pressure_RV": {
+   "split_half_r": 0.081,
+   "spearman_brown": 0.149,
+   "n": 90
+  },
+  "clutch_delta": {
+   "split_half_r": -0.024,
+   "spearman_brown": -0.048,
+   "n": 90
+  },
+  "pressure_WPA": {
+   "split_half_r": 0.095,
+   "spearman_brown": 0.173,
+   "n": 90
+  },
+  "baseline_RV": {
+   "split_half_r": 0.249,
+   "spearman_brown": 0.399,
+   "n": 90
+  }
+ },
+ "bowl_eligible": 112,
+ "bowl_excluded_inactive": 5,
+ "bowl_consistency_test": {
+  "WPA_positive": {
+   "prior_strength": 124.29,
+   "true_sd": 0.0447
+  },
+  "RV_positive": {
+   "prior_strength": 51.53,
+   "true_sd": 0.0688
+  }
+ },
+ "bowl_consistency_choice": "RV_positive",
+ "bowl_hyper": {
+  "C1": {
+   "mu": 0.15312056363636362,
+   "tau2": 0.019921620726096267,
+   "sigma2": 37.99472749925434
+  },
+  "baseline": {
+   "mu": 0.046447535089314686,
+   "tau2": 0.01264398861874789,
+   "sigma2": 6.373732118355935
+  },
+  "clutch": {
+   "mu": -0.03326244828685477,
+   "tau2": 0.0016828623083896405,
+   "sigma2": 6.147001480892633
+  },
+  "C4": {
+   "alpha": 24.056605325518756,
+   "beta": 27.477821971728137,
+   "mu": 0.46680649397269863,
+   "tau2": 0.004737811069097906
+  },
+  "true_sd": [
+   0.14114397162506187,
+   0.11969482414514644,
+   0.04102270479124506,
+   0.06883175916027358
+  ]
+ },
+ "bowl_reliability": {
+  "pressure_RV": {
+   "split_half_r": -0.04,
+   "spearman_brown": -0.083,
+   "n": 107
+  },
+  "clutch_delta": {
+   "split_half_r": 0.041,
+   "spearman_brown": 0.078,
+   "n": 107
+  },
+  "pressure_WPA": {
+   "split_half_r": -0.05,
+   "spearman_brown": -0.106,
+   "n": 107
+  },
+  "baseline_RV": {
+   "split_half_r": 0.313,
+   "spearman_brown": 0.476,
+   "n": 107
+  }
+ }
+}

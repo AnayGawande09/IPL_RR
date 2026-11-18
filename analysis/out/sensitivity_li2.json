@@ -1,0 +1,71 @@
+{
+ "bat": {
+  "eligible": 38,
+  "overlap_final_top10": 4,
+  "final_top10_ranks_at_2.0": [
+   3,
+   7,
+   15,
+   9,
+   null,
+   null,
+   null,
+   null,
+   2,
+   null
+  ],
+  "top10_at_2.0": [
+   "Nicholas Pooran",
+   "Shreyas Iyer",
+   "Heinrich Klaasen",
+   "Mohammad Nawaz",
+   "Rashid Khan",
+   "Ashutosh Sharma",
+   "Tim David",
+   "Rovman Powell",
+   "Rinku Singh",
+   "Jitesh Sharma"
+  ],
+  "not_eligible_at_2.0": [
+   "Josh Inglis",
+   "Yashasvi Jaiswal",
+   "Abhishek Sharma",
+   "Rajat Patidar",
+   "Prabhsimran Singh"
+  ]
+ },
+ "bowl": {
+  "eligible": 51,
+  "overlap_final_top10": 5,
+  "final_top10_ranks_at_2.0": [
+   4,
+   2,
+   5,
+   null,
+   1,
+   null,
+   21,
+   null,
+   9,
+   null
+  ],
+  "top10_at_2.0": [
+   "Varun Chakravarthy",
+   "Rashid Khan",
+   "Josh Hazlewood",
+   "Sunil Narine",
+   "Kuldeep Yadav",
+   "Axar Patel",
+   "Arshdeep Singh",
+   "Sikandar Raza",
+   "Krunal Pandya",
+   "Lockie Ferguson"
+  ],
+  "not_eligible_at_2.0": [
+   "Sufiyan Muqeem",
+   "Mohsin Khan",
+   "Mohammad Nawaz",
+   "Mitchell Santner"
+  ]
+ }
+}
